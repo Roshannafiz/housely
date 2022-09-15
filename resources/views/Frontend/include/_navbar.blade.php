@@ -60,7 +60,7 @@
         <div id="navigation">
             <!-- Navigation Menu-->
             <ul class="navigation-menu justify-end nav-light">
-                <li class="has-submenu parent-menu-item active">
+                <li class="has-submenu parent-menu-item {{ '/' == request()->path() ? 'active' : '' }}">
                     <a href="{{ url('/') }}">Home</a>
                 </li>
 

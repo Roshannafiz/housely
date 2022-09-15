@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/banner-edit', [\App\Http\Controllers\Admin\BannerController::class, 'banner_edit']);
     Route::put('/banner-update', [\App\Http\Controllers\Admin\BannerController::class, 'banner_update']);
     Route::delete('/banner-delete', [\App\Http\Controllers\Admin\BannerController::class, 'banner_delete']);
-    Route::get('/banner-status', [\App\Http\Controllers\Admin\BannerController::class, 'change_status'])->name('doctor-status');
+    Route::get('/banner-status', [\App\Http\Controllers\Admin\BannerController::class, 'change_status'])->name('banner-status');
 });
 
 

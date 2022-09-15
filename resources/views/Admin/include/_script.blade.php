@@ -7,7 +7,6 @@
 <script src="{{ asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
 <script src="{{ asset('admin/js/dataTable.js') }}"></script>
 <script src="{{ asset('admin/js/dataTables.select.min.js') }}"></script>
-
 <!-- inject:js -->
 <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
 <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
@@ -25,10 +24,9 @@
 <script src="{{ asset('admin/js/dropify.min.js') }}"></script>
 
 <!-- Custom js for this page-->
-{{--<script src="{{ asset('admin/js/dashboard.js') }}"></script>--}}
+<script src="{{ asset('admin/js/dashboard.js') }}"></script>
 <script src="{{ asset('admin/js/Chart.roundedBarCharts.js') }}"></script>
 <!-- End custom js for this page-->
-
 </body>
 
 </html>
