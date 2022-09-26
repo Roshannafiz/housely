@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend Routes
+| frontend Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index']);
@@ -21,7 +21,7 @@ Route::get('/contact-us', [\App\Http\Controllers\Frontend\ContactController::cla
 
 /*
 |--------------------------------------------------------------------------
-| Admin / User Custom Auth Routes
+| admin / User Custom Auth Routes
 |--------------------------------------------------------------------------
 */
 Route::post('/login', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'login'])->name('login');
@@ -29,7 +29,7 @@ Route::post('/register', [\App\Http\Controllers\CustomAuth\CustomAuthController:
 Route::get('/logout', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'logout'])->name('logout');
 /*
 |--------------------------------------------------------------------------
-| Admin Routes
+| admin Routes
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth'], function () {
@@ -39,9 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/banners', [\App\Http\Controllers\Admin\BannerController::class, 'index']);
     Route::get('/banner-create', [\App\Http\Controllers\Admin\BannerController::class, 'banner_create']);
     Route::post('/banner-store', [\App\Http\Controllers\Admin\BannerController::class, 'banner_store']);
-    Route::get('/banner-edit', [\App\Http\Controllers\Admin\BannerController::class, 'banner_edit']);
-    Route::put('/banner-update', [\App\Http\Controllers\Admin\BannerController::class, 'banner_update']);
-    Route::delete('/banner-delete', [\App\Http\Controllers\Admin\BannerController::class, 'banner_delete']);
+    Route::get('/banner-edit/{id}', [\App\Http\Controllers\Admin\BannerController::class, 'banner_edit']);
+    Route::put('/banner-update/{id}', [\App\Http\Controllers\Admin\BannerController::class, 'banner_update']);
+    Route::get('/banner-delete/{id}', [\App\Http\Controllers\Admin\BannerController::class, 'destroy']);
     Route::get('/banner-status', [\App\Http\Controllers\Admin\BannerController::class, 'change_status'])->name('banner-status');
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BannerController extends Controller
 {
@@ -39,7 +40,40 @@ class BannerController extends Controller
             $banner->image = $filename;
         }
         $banner->save();
-        return redirect('/banners')->with('message', "Banner Created Successfully");
+        return redirect()->back()->with('message', "Banner Created Successfully");
+    }
+
+    public function banner_edit($id)
+    {
+        // Get All Banner
+        $banner = Banner::find($id);
+        return view('admin.banner.edit', compact('banner'));
+    }
+
+    public function banner_update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'sub_title' => 'required',
+        ]);
+        $banner = Banner::find($id);
+        $banner->title = $request->title;
+        $banner->sub_title = $request->sub_title;
+
+        // Banner Image
+        if ($request->hasFile('image')) {
+            $path = 'admin/images/upload-banner/' . $banner->image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('admin/images/upload-banner', $filename);
+            $banner->image = $filename;
+        }
+        $banner->update();
+        return redirect('/banners')->with('update_message', "Banner Update Successfully");
     }
 
     // Change Status Using Ajax
@@ -49,4 +83,20 @@ class BannerController extends Controller
         $doctor->status = $request->status;
         $doctor->save();
     }
+
+    // Delete Banner
+    public function destroy($id)
+    {
+        $delete_data = Banner::find($id);
+        // Banner Image
+        $path = 'admin/images/upload-banner/' . $delete_data->image;
+        if (File::exists($path)) {
+            File::delete($path);
+        }
+        $delete_data->delete();
+        if ($delete_data) {
+            return redirect()->back()->with('delete_message', "Banner Deleted Successfully");
+        }
+    }
+
 }
