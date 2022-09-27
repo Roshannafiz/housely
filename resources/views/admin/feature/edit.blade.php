@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Banner Create</h3>
+                    <h3 class="page-title mt-3">Feature Update</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,9 +12,9 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/banners') }}" type="submit" class="btn btn-primary">
+                        <a href="{{ url('/features') }}" type="submit" class="btn btn-primary">
                             <i class="fa fa-arrow-left"></i>
-                            Go Banner
+                            Go Feature
                         </a>
                     </div>
                 </div>
@@ -25,19 +25,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ url('banner-store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('feature-update/' . $feature->id) }}" method="POST"
+                              enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-xl-6">
-                                    @if(session()->has('message'))
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            {{ session()->get('message') }}
-                                            <button type="button" class="close" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    @endif
                                     <div class="row">
                                         <label class="col-lg-3 col-form-label">Title</label>
                                         <div class="col-lg-9">
@@ -45,7 +38,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" name="title" placeholder="Title"
-                                                               class="form-control" value="{{ old('title') }}">
+                                                               class="form-control" value="{{ $feature->title }}">
                                                         <div class="error-message">
                                                             @error('title')
                                                             <span>! {{ $message }}</span>
@@ -64,7 +57,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" name="sub_title" placeholder="Sub Title"
-                                                               class="form-control" value="{{ old('sub_title') }}">
+                                                               class="form-control" value="{{ $feature->sub_title }}">
                                                         <div class="error-message">
                                                             @error('sub_title')
                                                             <span>! {{ $message }}</span>
@@ -77,19 +70,37 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Image</label>
+                                        <label class="col-lg-3 col-form-label">Icon Code</label>
                                         <div class="col-lg-9">
-                                            <input type="file" name="image" class="form-control dropify">
-                                            <div class="error-message">
-                                                @error('image')
-                                                <span>! {{ $message }}</span>
-                                                @enderror
+                                            <div class="form-group">
+                                                <input type="text" name="icon_code" placeholder="Sub Title"
+                                                       class="form-control" value="{{ $feature->icon_code }}">
+                                                <div class="error-message">
+                                                    @error('icon_code')
+                                                    <span>! {{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Link</label>
+                                        <div class="col-lg-9">
+                                            <div class="form-group">
+                                                <input type="text" name="link" placeholder="Link"
+                                                       class="form-control" value="{{ $feature->link }}">
+                                                <div class="error-message">
+                                                    @error('link')
+                                                    <span>! {{ $message }}</span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-primary">Create</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </div>

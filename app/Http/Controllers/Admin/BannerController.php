@@ -45,7 +45,7 @@ class BannerController extends Controller
 
     public function banner_edit($id)
     {
-        // Get All Banner
+        // Get Banner
         $banner = Banner::find($id);
         return view('admin.banner.edit', compact('banner'));
     }

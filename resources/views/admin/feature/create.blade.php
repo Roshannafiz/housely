@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Banner Create</h3>
+                    <h3 class="page-title mt-3">Feature Create</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,9 +12,9 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/banners') }}" type="submit" class="btn btn-primary">
+                        <a href="{{ url('/features') }}" type="submit" class="btn btn-primary">
                             <i class="fa fa-arrow-left"></i>
-                            Go Banner
+                            Go Feature
                         </a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ url('banner-store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('feature-store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-xl-6">
@@ -77,16 +77,29 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Image</label>
+                                        <label class="col-lg-3 col-form-label">Icon Code</label>
                                         <div class="col-lg-9">
-                                            <input type="file" name="image" class="form-control dropify">
+                                            <input type="text" name="icon_code" class="form-control" placeholder="Icon Code">
                                             <div class="error-message">
-                                                @error('image')
+                                                @error('icon_code')
                                                 <span>! {{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                     </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Link</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" name="link" class="form-control" placeholder="Link">
+                                                <div class="error-message">
+                                                    @error('link')
+                                                    <span>! {{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary">Create</button>

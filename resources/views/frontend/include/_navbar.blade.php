@@ -76,7 +76,7 @@
                     <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
                     <ul class="submenu">
                         <li>
-                            <a href="{{ url('/features') }}" class="sub-menu-item">Featues</a>
+                            <a href="{{ url('/feature') }}" class="sub-menu-item">Featues</a>
                         </li>
 
                         <li>

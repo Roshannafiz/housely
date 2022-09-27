@@ -34,14 +34,30 @@
                     </ul>
                 </li>
 
-                <li class="submenu"><a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span
-                            class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        <li><a href="all-customer.html"> All customers </a></li>
-                        <li><a href="edit-customer.html"> Edit Customer </a></li>
-                        <li><a href="add-customer.html"> Add Customer </a></li>
+                <li class="submenu">
+                    <a href="#" class="{{ 'features' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'feature-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fas fa-suitcase"></i>
+                        <span> Feature </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'feature-create' == request()->path() ? 'display: block' : '' }} {{ 'features' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/features') }}" class="{{ 'features' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Feature
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/feature-create') }}"
+                               class="{{ 'feature-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
                     </ul>
                 </li>
+
+
                 <li class="submenu"><a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span
                             class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">
