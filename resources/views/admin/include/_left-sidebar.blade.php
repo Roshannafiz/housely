@@ -12,7 +12,8 @@
                 <li class="list-divider"></li>
 
                 <li class="submenu">
-                    <a href="#" class="{{ 'banners' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'banner-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                    <a href="#"
+                       class="{{ 'banners' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'banner-create' == request()->path() ? 'menu_active subdrop' : '' }}">
                         <i class="fas fa-suitcase"></i>
                         <span> Banner </span>
                         <span class="menu-arrow"></span>
@@ -20,7 +21,8 @@
                     <ul class="submenu_class"
                         style="{{ 'banner-create' == request()->path() ? 'display: block' : '' }} {{ 'banners' == request()->path() ? 'display: block' : '' }}">
                         <li>
-                            <a href="{{ url('/banners') }}" class="{{ 'banners' == request()->path() ? 'link-active-color' : '' }}">
+                            <a href="{{ url('/banners') }}"
+                               class="{{ 'banners' == request()->path() ? 'link-active-color' : '' }}">
                                 Our Banner
                             </a>
                         </li>
@@ -35,7 +37,8 @@
                 </li>
 
                 <li class="submenu">
-                    <a href="#" class="{{ 'features' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'feature-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                    <a href="#"
+                       class="{{ 'features' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'feature-create' == request()->path() ? 'menu_active subdrop' : '' }}">
                         <i class="fas fa-suitcase"></i>
                         <span> Feature </span>
                         <span class="menu-arrow"></span>
@@ -43,7 +46,8 @@
                     <ul class="submenu_class"
                         style="{{ 'feature-create' == request()->path() ? 'display: block' : '' }} {{ 'features' == request()->path() ? 'display: block' : '' }}">
                         <li>
-                            <a href="{{ url('/features') }}" class="{{ 'features' == request()->path() ? 'link-active-color' : '' }}">
+                            <a href="{{ url('/features') }}"
+                               class="{{ 'features' == request()->path() ? 'link-active-color' : '' }}">
                                 Our Feature
                             </a>
                         </li>
@@ -51,6 +55,32 @@
                         <li>
                             <a href="{{ url('/feature-create') }}"
                                class="{{ 'feature-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ 'brands' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'brand-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fas fa-suitcase"></i>
+                        <span> Brand </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'brand-create' == request()->path() ? 'display: block' : '' }} {{ 'brands' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/brands') }}"
+                               class="{{ 'brands' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Brand
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/brand-create') }}"
+                               class="{{ 'brand-create' == request()->path() ? 'link-active-color' : '' }}">
                                 Create
                             </a>
                         </li>

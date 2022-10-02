@@ -1,6 +1,11 @@
 <?php
 
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +26,63 @@ Route::get('/contact-us', [\App\Http\Controllers\Frontend\ContactController::cla
 
 /*
 |--------------------------------------------------------------------------
-| admin / User Custom Auth Routes
+| Admin / User Custom Auth Routes
 |--------------------------------------------------------------------------
 */
 Route::post('/login', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'login'])->name('login');
 Route::post('/register', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'register'])->name('register');
 Route::get('/logout', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'logout'])->name('logout');
+
+// Forgot Password
+Route::get('/forgot-password', function () {
+    return view('frontend.user.forgot-password');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', function ($token) {
+    return view('frontend.user.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+
+            $user->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    return $status === Password::PASSWORD_RESET
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
+
+
 /*
 |--------------------------------------------------------------------------
-| admin Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth'], function () {
@@ -52,6 +105,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/feature-update/{id}', [\App\Http\Controllers\Admin\FeatureController::class, 'feature_update']);
     Route::get('/feature-delete/{id}', [\App\Http\Controllers\Admin\FeatureController::class, 'destroy']);
     Route::get('/feature-status', [\App\Http\Controllers\Admin\FeatureController::class, 'change_status'])->name('feature-status');
+
+    // Brand Route
+    Route::get('/brands', [\App\Http\Controllers\Admin\BrandController::class, 'index']);
+    Route::get('/brand-create', [\App\Http\Controllers\Admin\BrandController::class, 'brand_create']);
+    Route::post('/brand-store', [\App\Http\Controllers\Admin\BrandController::class, 'brand_store']);
+    Route::get('/brand-edit/{id}', [\App\Http\Controllers\Admin\BrandController::class, 'brand_edit']);
+    Route::put('/brand-update/{id}', [\App\Http\Controllers\Admin\BrandController::class, 'brand_update']);
+    Route::get('/brand-delete/{id}', [\App\Http\Controllers\Admin\BrandController::class, 'destroy']);
+    Route::get('/brand-status', [\App\Http\Controllers\Admin\BrandController::class, 'change_status'])->name('brand-status');
 });
 
 

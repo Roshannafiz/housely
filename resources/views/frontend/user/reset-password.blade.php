@@ -10,29 +10,20 @@
             <div
                 class="max-w-[400px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('frontend/assets/images/logo-icon-64.png') }}" class="mx-auto" alt="">
+                    <img src="{{ asset('frontend/assets/images/logo-icon-64.png') }}"
+                         class="mx-auto" alt="">
                 </a>
 
-                <h5 class="my-6 text-xl font-semibold">Login</h5>
-                <div style="padding-bottom: 20px; color: red !important;">
-                    @if(session()->has('error_message'))
-                        <div class="alert alert-danger">
-                            {{ session()->get('error_message') }}
-                        </div>
-                    @endif
-                </div>
-                <div>
-                    @if(session('failed'))
-                        <p style="color: green">{{ session('failed') }}</p>
-                    @elseif(session('status'))
-                        <p style="color: red">{{ session('status') }}</p>
-                    @endif
-                </div>
-                <form action="{{ route('login') }}" method="POST" class="text-left">
+                <h5 class="my-6 text-xl font-semibold">
+                    Reset Password
+                </h5>
+
+                <form action="{{ route('password.update') }}" method="POST" class="text-left">
                     @csrf
+                    <input type="hidden" name="token" value="{{ $token }}">
                     <div class="grid grid-cols-1">
                         <div class="mb-4">
-                            <label class="font-medium" for="LoginEmail">Email Address:</label>
+                            <label class="font-semibold" for="LoginEmail">Email Address:</label>
                             <input id="LoginEmail" name="email" value="{{ old('email') }}" type="email"
                                    class="form-input mt-3"
                                    placeholder="name@example.com">
@@ -44,7 +35,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <label class="font-medium" for="LoginPassword">Password:</label>
+                            <label class="font-semibold" for="LoginPassword">Password:</label>
                             <input id="LoginPassword" name="password" type="password" class="form-input mt-3"
                                    placeholder="Password:">
                             <div class="py-2">
@@ -54,31 +45,22 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-between mb-4">
-                            <div class="form-checkbox flex items-center mb-0">
-                                <input class="mr-2 border border-inherit w-[14px] h-[14px]" type="checkbox" value=""
-                                       id="RememberMe">
-                                <label class="text-slate-400" for="RememberMe">Remember me</label>
+                        <div class="mb-4">
+                            <label class="font-semibold" for="LoginPassword">Confirm Password:</label>
+                            <input id="LoginPassword" name="confirm_password" type="password" class="form-input mt-3"
+                                   placeholder="Password:">
+                            <div class="py-2">
+                                @if ($errors->has('confirm_password'))
+                                    <span style="color: red">{{ $errors->first('confirm_password') }}</span>
+                                @endif
                             </div>
-                            <p class="text-slate-400 mb-0">
-                                <a href="{{ route('password.request') }}" class="text-slate-400">
-                                    Forgot Password ?
-                                </a>
-                            </p>
                         </div>
 
                         <div class="mb-4">
                             <button type="submit"
                                     class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
-                                Sign in
+                                Reset
                             </button>
-                        </div>
-
-                        <div class="text-center">
-                            <span class="text-slate-400 me-2">Don't have an account ?</span>
-                            <a href="{{ url('/sign-up') }}" class="text-black dark:text-white font-bold">
-                                Sign Up
-                            </a>
                         </div>
                     </div>
                 </form>

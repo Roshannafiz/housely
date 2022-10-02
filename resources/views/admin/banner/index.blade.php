@@ -36,6 +36,12 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
+                                                    aria-label="#ID: activate to sort column descending"
+                                                    style="width: 250.656px;">#ID
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
                                                     aria-label="Title: activate to sort column descending"
                                                     style="width: 250.656px;">Title
                                                 </th>
@@ -65,6 +71,11 @@
                                             <tbody>
                                             @foreach($banners as $banner)
                                                 <tr class="odd">
+                                                    <td class="sorting_1">
+                                                        <span style="font-weight: bold">
+                                                            {{ $banner->id }}
+                                                        </span>
+                                                    </td>
                                                     <td class="sorting_1">
                                                         {{ $banner->title }}
                                                     </td>
