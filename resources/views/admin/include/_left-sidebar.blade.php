@@ -87,6 +87,31 @@
                     </ul>
                 </li>
 
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ 'categories' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'category-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fas fa-suitcase"></i>
+                        <span> Category </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'category-create' == request()->path() ? 'display: block' : '' }} {{ 'categories' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/categories') }}"
+                               class="{{ 'categories' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Category
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/category-create') }}"
+                               class="{{ 'category-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
                 <li class="submenu"><a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span
                             class="menu-arrow"></span></a>

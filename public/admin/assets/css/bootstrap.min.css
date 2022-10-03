@@ -5319,9 +5319,10 @@ a.badge-dark.focus, a.badge-dark:focus {
 }
 
 .alert-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb
+    color: white;
+    background-color: #2FB986;
+    border-color: #7affcedb;
+    padding: 14px 25px;
 }
 
 .alert-success hr {
@@ -5853,7 +5854,7 @@ a.badge-dark.focus, a.badge-dark:focus {
 }
 
 .close:hover {
-    color: #000;
+    color: #ffffff;
     text-decoration: none
 }
 

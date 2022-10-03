@@ -58,4 +58,24 @@
         });
     });
     /*======== 3. END CHANGE BRAND STATUS ========*/
+
+    /*======== 4. START CHANGE CATEGORY STATUS ========*/
+    $(".toggle-class-category").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var category_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/category-status",
+            data: {
+                status: status,
+                category_id: category_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 4. END CHANGE CATEGORY STATUS ========*/
 })(jQuery);

@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Feature</h3>
+                    <h3 class="page-title mt-3">Our Category</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,7 +12,7 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/feature-create') }}" class="btn btn-primary">
+                        <a href="{{ url('/category-create') }}" class="btn btn-primary">
                             Create
                             <i class="fa fa-plus"></i>
                         </a>
@@ -42,23 +42,13 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="Title: activate to sort column descending"
-                                                    style="width: 250.656px;">Title
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 250.656px;">Name
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
-                                                    aria-label="Sub Title: activate to sort column ascending"
-                                                    style="width: 410.969px;">Sub Title
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Icon Code: activate to sort column ascending"
-                                                    style="width: 186.141px;">Icon Code
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Link: activate to sort column ascending"
-                                                    style="width: 186.141px;">Link
+                                                    aria-label="Image: activate to sort column ascending"
+                                                    style="width: 186.141px;">Image
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -74,35 +64,32 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($features as $feature)
+                                            @foreach($categories as $category)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
-                                                            {{ $feature->id }}
+                                                            {{ $category->id }}
                                                         </span>
                                                     </td>
                                                     <td class="sorting_1">
-                                                        {{ $feature->title }}
+                                                        {{ $category->name }}
                                                     </td>
                                                     <td>
-                                                        {{ $feature->sub_title }}
+                                                        <img style="width: 80px; height: 50px"
+                                                             src="{{ asset('admin/images/upload-category/' . $category->image) }}"
+                                                             alt="">
                                                     </td>
                                                     <td>
-                                                        {{ $feature->icon_code }}
-                                                    </td>
-                                                    <td>
-                                                        {{ $feature->link }}
-                                                    </td>
-                                                    <td>
-                                                        <input data-id="{{ $feature->id }}" class="toggle-class-feature"
+                                                        <input data-id="{{ $category->id }}" class="toggle-class-category"
                                                                type="checkbox" data-onstyle="success"
                                                                data-offstyle="danger"
-                                                               data-toggle="toggle-feature" data-on="Active"
-                                                               data-off="Inactive" {{ $feature->status ? 'checked' : '' }}>
+                                                               data-toggle="toggle-category" data-on="Active"
+                                                               data-off="Inactive" {{ $category->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('feature-edit/' . $feature->id) }}">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1"
+                                                             style="margin-right: -20px">
+                                                            <a href="{{ url('category-edit/' . $category->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
@@ -110,7 +97,7 @@
                                                         </div>
 
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/feature-delete/' . $feature->id) }}">
+                                                            <a href="{{ url('/category-delete/' . $category->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>

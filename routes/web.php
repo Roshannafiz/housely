@@ -114,6 +114,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/brand-update/{id}', [\App\Http\Controllers\Admin\BrandController::class, 'brand_update']);
     Route::get('/brand-delete/{id}', [\App\Http\Controllers\Admin\BrandController::class, 'destroy']);
     Route::get('/brand-status', [\App\Http\Controllers\Admin\BrandController::class, 'change_status'])->name('brand-status');
+
+    // Category Route
+    Route::get('/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
+    Route::get('/category-create', [\App\Http\Controllers\Admin\CategoryController::class, 'category_create']);
+    Route::post('/category-store', [\App\Http\Controllers\Admin\CategoryController::class, 'category_store']);
+    Route::get('/category-edit/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'category_edit']);
+    Route::put('/category-update/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'category_update']);
+    Route::get('/category-delete/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
+    Route::get('/category-status', [\App\Http\Controllers\Admin\CategoryController::class, 'change_status'])->name('category-status');
 });
 
 

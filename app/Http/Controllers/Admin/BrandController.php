@@ -69,7 +69,7 @@ class BrandController extends Controller
             $brand->image = $filename;
         }
         $brand->update();
-        return redirect('/brands')->with('update_message', "Brands Updated Successfully");
+        return redirect('/brands')->with('update_message', "Brand Updated Successfully");
     }
 
     // Change Status Using Ajax
