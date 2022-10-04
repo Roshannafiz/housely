@@ -38,6 +38,31 @@
 
                 <li class="submenu">
                     <a href="#"
+                       class="{{ 'navbars' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'navbar-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fas fa-suitcase"></i>
+                        <span> Navbar </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'navbar-create' == request()->path() ? 'display: block' : '' }} {{ 'navbars' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/navbars') }}"
+                               class="{{ 'navbars' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Navbar
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/navbar-create') }}"
+                               class="{{ 'navbar-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"
                        class="{{ 'features' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'feature-create' == request()->path() ? 'menu_active subdrop' : '' }}">
                         <i class="fas fa-suitcase"></i>
                         <span> Feature </span>

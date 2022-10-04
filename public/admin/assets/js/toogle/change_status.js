@@ -78,4 +78,24 @@
         });
     });
     /*======== 4. END CHANGE CATEGORY STATUS ========*/
+
+    /*======== 5. START CHANGE NAVBAR STATUS ========*/
+    $(".toggle-class-navbar").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var navbar_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/navbar-status",
+            data: {
+                status: status,
+                navbar_id: navbar_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 5. END CHANGE NAVBAR STATUS ========*/
 })(jQuery);

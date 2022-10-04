@@ -88,6 +88,15 @@ Route::post('/reset-password', function (Request $request) {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('dashboard');
 
+    // Navbar Route
+    Route::get('/navbars', [\App\Http\Controllers\Admin\NavbarController::class, 'index']);
+    Route::get('/navbar-create', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_create']);
+    Route::post('/navbar-store', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_store']);
+    Route::get('/navbar-edit/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_edit']);
+    Route::put('/navbar-update/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_update']);
+    Route::get('/navbar-delete/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'destroy']);
+    Route::get('/navbar-status', [\App\Http\Controllers\Admin\NavbarController::class, 'change_status'])->name('navbar-status');
+
     // Banner Route
     Route::get('/banners', [\App\Http\Controllers\Admin\BannerController::class, 'index']);
     Route::get('/banner-create', [\App\Http\Controllers\Admin\BannerController::class, 'banner_create']);
