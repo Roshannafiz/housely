@@ -1,29 +1,28 @@
 @extends('admin.Layouts')
 @section('admin_content')
     <div class="content container-fluid">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Feature Update</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active">Have A Nice Day!</li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="text-right">
-                        <a href="{{ url('/features') }}" type="submit" class="btn btn-primary">
-                            <i class="fa fa-arrow-left"></i>
-                            Go Feature
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card shadow p-5">
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-sm-12 mt-5">
+                                <h3 class="page-title mt-3">Feature Update</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item active">Have A Nice Day!</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="text-right">
+                                    <a href="{{ url('/features') }}" type="submit" class="btn btn-primary">
+                                        <i class="fa fa-arrow-left"></i>
+                                        Go Feature
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <form action="{{ url('feature-update/' . $feature->id) }}" method="POST"
                               enctype="multipart/form-data">

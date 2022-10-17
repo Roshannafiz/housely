@@ -40,7 +40,7 @@ class CategoryController extends Controller
             $category->image = $filename;
         }
         $category->save();
-        return redirect()->back()->with('message', "Category Created Successfully");
+        return redirect()->back()->with('create_message', "Category Created Successfully");
     }
 
     public function category_edit($id)

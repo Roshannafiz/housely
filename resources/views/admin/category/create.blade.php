@@ -1,29 +1,28 @@
 @extends('admin.Layouts')
 @section('admin_content')
     <div class="content container-fluid">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Category Create</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active">Have A Nice Day!</li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="text-right">
-                        <a href="{{ url('/categories') }}" type="submit" class="btn btn-primary">
-                            <i class="fa fa-arrow-left"></i>
-                            Go Category
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card shadow p-5">
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-sm-12 mt-5">
+                                <h3 class="page-title mt-3">Category Create</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item active">Have A Nice Day!</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="text-right">
+                                    <a href="{{ url('/categories') }}" type="submit" class="btn btn-primary">
+                                        <i class="fa fa-arrow-left"></i>
+                                        Go Category
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <form action="{{ url('category-store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -41,7 +40,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Name</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" value="{{ old('name') }}" placeholder="Name" class="form-control">
                                             <div class="error-message">
                                                 @error('name')
                                                 <span>! {{ $message }}</span>

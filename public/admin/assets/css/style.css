@@ -2023,7 +2023,8 @@ input:-moz-placeholder {
 }
 
 .page-wrapper > .content {
-    padding: 1.875rem 1.875rem 0
+    padding: 1.875rem 1.875rem 0;
+    margin-top: 50px;
 }
 
 .page-header {

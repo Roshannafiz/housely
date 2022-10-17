@@ -38,7 +38,7 @@ class BrandController extends Controller
             $brand->image = $filename;
         }
         $brand->save();
-        return redirect()->back()->with('message', 'Brand Created Successfully');
+        return redirect()->back()->with('create_message', 'Brand Created Successfully');
     }
 
     public function brand_edit($id)

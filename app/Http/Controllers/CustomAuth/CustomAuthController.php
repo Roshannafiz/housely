@@ -12,6 +12,18 @@ use Illuminate\Support\Facades\Session;
 class CustomAuthController extends Controller
 {
 
+    // Login View
+    public function login_view()
+    {
+        return view('auth-view.login');
+    }
+
+    // Sign Up View
+    public function sign_up_view()
+    {
+        return view('auth-view.sign-up');
+    }
+
     // Login
     public function login(Request $request)
     {

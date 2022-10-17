@@ -40,7 +40,7 @@ class BannerController extends Controller
             $banner->image = $filename;
         }
         $banner->save();
-        return redirect()->back()->with('message', "Banner Created Successfully");
+        return redirect()->back()->with('create_message', "Banner Created Successfully");
     }
 
     public function banner_edit($id)

@@ -17,7 +17,9 @@ class NavbarController extends Controller
 
     public function navbar_create()
     {
-        return view('admin.navbar.create');
+        // Get Active Navbar
+        $navbars = Navbar::where('status', '=', 1)->get();
+        return view('admin.navbar.create', compact('navbars'));
     }
 
     public function navbar_store(Request $request)
@@ -30,7 +32,7 @@ class NavbarController extends Controller
         $brand->name = $request->name;
         $brand->link = $request->link;
         $brand->save();
-        return redirect()->back()->with('message', 'Navbar Created Successfully');
+        return redirect()->back()->with('create_message', 'Navbar Created Successfully');
     }
 
     public function navbar_edit($id)

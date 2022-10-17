@@ -35,7 +35,7 @@ class FeatureController extends Controller
         $feature->icon_code = $request->icon_code;
         $feature->link = $request->link;
         $feature->save();
-        return redirect()->back()->with('message', "Featured Created Successfully");
+        return redirect()->back()->with('create_message', "Featured Created Successfully");
 
     }
 

@@ -22,14 +22,14 @@
 
 <script src="{{ asset('admin/assets/js/script.js') }}"></script>
 
-<!------- Delete Message ------->
-@if (session('delete_message')){
+<!------- Create Message ------->
+@if (session('create_message')){
 <script>
     $.toast({
-        heading: 'Deleted!',
-        text: '{{ session('delete_message') }}',
+        heading: 'Created!',
+        text: '{{ session('create_message') }}',
         position: 'top-right',
-        bgColor: 'red',
+        bgColor: '#009688',
         stack: false
     })
 </script>
@@ -44,6 +44,20 @@
         text: '{{ session('update_message') }}',
         position: 'top-right',
         bgColor: '#28A745',
+        stack: false
+    })
+</script>
+}
+@endif
+
+<!------- Delete Message ------->
+@if (session('delete_message')){
+<script>
+    $.toast({
+        heading: 'Deleted!',
+        text: '{{ session('delete_message') }}',
+        position: 'top-right',
+        bgColor: 'red',
         stack: false
     })
 </script>

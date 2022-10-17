@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Navbar</h3>
+                    <h3 class="page-title mt-3">Our Sub-Navbar</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,7 +12,7 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/navbar-create') }}" class="btn btn-primary">
+                        <a href="{{ url('/subnavbar-create') }}" class="btn btn-primary">
                             Create
                             <i class="fa fa-plus"></i>
                         </a>
@@ -42,8 +42,14 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="Navbar: activate to sort column descending"
-                                                    style="width: 250.656px;">Navbar
+                                                    aria-label="( Navbar ): activate to sort column descending"
+                                                    style="width: 250.656px;">( Navbar )
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Sub-Navbar: activate to sort column descending"
+                                                    style="width: 250.656px;">Sub-Navbar
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -52,41 +58,31 @@
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
-                                                    aria-label="Status: activate to sort column ascending"
-                                                    style="width: 98.5938px;">Status
-                                                </th>
-
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
                                                     style="width: 149.391px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($navbars as $navbar)
+                                            @foreach($subnavbars as $subnavbar)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
-                                                            {{ $navbar->id }}
+                                                            {{ $subnavbar->id }}
                                                         </span>
                                                     </td>
+                                                    <td>
+                                                        {{ $subnavbar->navbar_name }}
+                                                    </td>
                                                     <td class="sorting_1">
-                                                        {{ $navbar->name }}
+                                                        {{ $subnavbar->sub_navbar_name }}
                                                     </td>
                                                     <td>
-                                                        {{ $navbar->link }}
-                                                    </td>
-                                                    <td>
-                                                        <input data-id="{{ $navbar->id }}" class="toggle-class-navbar"
-                                                               type="checkbox" data-onstyle="success"
-                                                               data-offstyle="danger"
-                                                               data-toggle="toggle-navbar" data-on="Active"
-                                                               data-off="Inactive" {{ $navbar->status ? 'checked' : '' }}>
+                                                        {{ $subnavbar->sub_navbar_link }}
                                                     </td>
                                                     <td class="row">
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('navbar-edit/' . $navbar->id) }}">
+                                                            <a href="{{ url('subnavbar-edit/' . $subnavbar->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
@@ -94,7 +90,7 @@
                                                         </div>
 
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/navbar-delete/' . $navbar->id) }}">
+                                                            <a href="{{ url('/subnavbar-delete/' . $subnavbar->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>

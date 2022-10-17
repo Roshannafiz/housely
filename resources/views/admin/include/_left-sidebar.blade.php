@@ -13,13 +13,38 @@
 
                 <li class="submenu">
                     <a href="#"
-                       class="{{ 'banners' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'banner-create' == request()->path() ? 'menu_active subdrop' : '' }}">
-                        <i class="fas fa-suitcase"></i>
+                       class="{{ 'house-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'houses' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'house-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-home"></i>
+                        <span> House </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'house-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'house-create' == request()->path() ? 'display: block' : '' }} {{ 'houses' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/houses') }}"
+                               class="{{ 'houses' == request()->path() ? 'link-active-color' : '' }}">
+                                Our House
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/house-create') }}"
+                               class="{{ 'house-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ 'banner-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'banners' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'banner-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-image"></i>
                         <span> Banner </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="submenu_class"
-                        style="{{ 'banner-create' == request()->path() ? 'display: block' : '' }} {{ 'banners' == request()->path() ? 'display: block' : '' }}">
+                        style="{{ 'banner-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'banner-create' == request()->path() ? 'display: block' : '' }} {{ 'banners' == request()->path() ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/banners') }}"
                                class="{{ 'banners' == request()->path() ? 'link-active-color' : '' }}">
@@ -38,13 +63,13 @@
 
                 <li class="submenu">
                     <a href="#"
-                       class="{{ 'navbars' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'navbar-create' == request()->path() ? 'menu_active subdrop' : '' }}">
-                        <i class="fas fa-suitcase"></i>
+                       class="{{ 'navbar-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'navbars' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'navbar-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-bars"></i>
                         <span> Navbar </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="submenu_class"
-                        style="{{ 'navbar-create' == request()->path() ? 'display: block' : '' }} {{ 'navbars' == request()->path() ? 'display: block' : '' }}">
+                        style="{{ 'navbar-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'navbar-create' == request()->path() ? 'display: block' : '' }} {{ 'navbars' == request()->path() ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/navbars') }}"
                                class="{{ 'navbars' == request()->path() ? 'link-active-color' : '' }}">
@@ -63,13 +88,38 @@
 
                 <li class="submenu">
                     <a href="#"
-                       class="{{ 'features' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'feature-create' == request()->path() ? 'menu_active subdrop' : '' }}">
-                        <i class="fas fa-suitcase"></i>
+                       class="{{ 'subnavbar-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'subnavbars' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'subnavbar-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-list"></i>
+                        <span> Sub-Navbar </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'subnavbar-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'subnavbar-create' == request()->path() ? 'display: block' : '' }} {{ 'subnavbars' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/subnavbars') }}"
+                               class="{{ 'subnavbars' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Sub-Navbar
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/subnavbar-create') }}"
+                               class="{{ 'subnavbar-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ 'feature-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'features' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'feature-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-brands fa-servicestack"></i>
                         <span> Feature </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="submenu_class"
-                        style="{{ 'feature-create' == request()->path() ? 'display: block' : '' }} {{ 'features' == request()->path() ? 'display: block' : '' }}">
+                        style="{{ 'feature-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'feature-create' == request()->path() ? 'display: block' : '' }} {{ 'features' == request()->path() ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/features') }}"
                                class="{{ 'features' == request()->path() ? 'link-active-color' : '' }}">
@@ -89,13 +139,13 @@
 
                 <li class="submenu">
                     <a href="#"
-                       class="{{ 'brands' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'brand-create' == request()->path() ? 'menu_active subdrop' : '' }}">
-                        <i class="fas fa-suitcase"></i>
+                       class="{{ 'brand-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'brands' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'brand-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-flag"></i>
                         <span> Brand </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="submenu_class"
-                        style="{{ 'brand-create' == request()->path() ? 'display: block' : '' }} {{ 'brands' == request()->path() ? 'display: block' : '' }}">
+                        style="{{ 'brand-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'brand-create' == request()->path() ? 'display: block' : '' }} {{ 'brands' == request()->path() ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/brands') }}"
                                class="{{ 'brands' == request()->path() ? 'link-active-color' : '' }}">
@@ -114,13 +164,13 @@
 
                 <li class="submenu">
                     <a href="#"
-                       class="{{ 'categories' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'category-create' == request()->path() ? 'menu_active subdrop' : '' }}">
-                        <i class="fas fa-suitcase"></i>
+                       class="{{ 'category-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'categories' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'category-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-brands fa-squarespace"></i>
                         <span> Category </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="submenu_class"
-                        style="{{ 'category-create' == request()->path() ? 'display: block' : '' }} {{ 'categories' == request()->path() ? 'display: block' : '' }}">
+                        style="{{ 'category-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'category-create' == request()->path() ? 'display: block' : '' }} {{ 'categories' == request()->path() ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/categories') }}"
                                class="{{ 'categories' == request()->path() ? 'link-active-color' : '' }}">

@@ -13,8 +13,6 @@ use Illuminate\Support\Str;
 |--------------------------------------------------------------------------
 */
 Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index']);
-Route::get('/login', [\App\Http\Controllers\Frontend\UserController::class, 'login_view'])->middleware('guest');
-Route::get('/sign-up', [\App\Http\Controllers\Frontend\UserController::class, 'sign_up_view'])->middleware('guest');
 Route::get('/buy', [\App\Http\Controllers\Frontend\BuyController::class, 'index']);
 Route::get('/about-us', [\App\Http\Controllers\Frontend\AboutUsController::class, 'index']);
 Route::get('/feature', [\App\Http\Controllers\Frontend\FeatureController::class, 'index']);
@@ -29,13 +27,15 @@ Route::get('/contact-us', [\App\Http\Controllers\Frontend\ContactController::cla
 | Admin / User Custom Auth Routes
 |--------------------------------------------------------------------------
 */
+Route::get('/login', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'login_view'])->middleware('guest');
+Route::get('/sign-up', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'sign_up_view'])->middleware('guest');
 Route::post('/login', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'login'])->name('login');
 Route::post('/register', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'register'])->name('register');
 Route::get('/logout', [\App\Http\Controllers\CustomAuth\CustomAuthController::class, 'logout'])->name('logout');
 
 // Forgot Password
 Route::get('/forgot-password', function () {
-    return view('frontend.user.forgot-password');
+    return view('auth-view.forgot-password');
 })->middleware('guest')->name('password.request');
 
 Route::post('/forgot-password', function (Request $request) {
@@ -51,7 +51,7 @@ Route::post('/forgot-password', function (Request $request) {
 })->middleware('guest')->name('password.email');
 
 Route::get('/reset-password/{token}', function ($token) {
-    return view('frontend.user.reset-password', ['token' => $token]);
+    return view('auth-view.reset-password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
 
 Route::post('/reset-password', function (Request $request) {
@@ -88,7 +88,7 @@ Route::post('/reset-password', function (Request $request) {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('dashboard');
 
-    // Navbar Route
+    // Nav-bar Route
     Route::get('/navbars', [\App\Http\Controllers\Admin\NavbarController::class, 'index']);
     Route::get('/navbar-create', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_create']);
     Route::post('/navbar-store', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_store']);
@@ -96,6 +96,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/navbar-update/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_update']);
     Route::get('/navbar-delete/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'destroy']);
     Route::get('/navbar-status', [\App\Http\Controllers\Admin\NavbarController::class, 'change_status'])->name('navbar-status');
+
+    // Sub-Nav-bar Route
+    Route::get('/subnavbars', [\App\Http\Controllers\Admin\SubnavbarController::class, 'index']);
+    Route::get('/subnavbar-create', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_create']);
+    Route::post('/subnavbar-store', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_store']);
+    Route::get('/subnavbar-edit/{id}', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_edit']);
+    Route::put('/subnavbar-update/{id}', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_update']);
+    Route::get('/subnavbar-delete/{id}', [\App\Http\Controllers\Admin\SubnavbarController::class, 'destroy']);
 
     // Banner Route
     Route::get('/banners', [\App\Http\Controllers\Admin\BannerController::class, 'index']);
@@ -132,6 +140,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/category-update/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'category_update']);
     Route::get('/category-delete/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
     Route::get('/category-status', [\App\Http\Controllers\Admin\CategoryController::class, 'change_status'])->name('category-status');
+
+    // House Route
+    Route::get('/houses', [\App\Http\Controllers\Admin\HouseController::class, 'index']);
+    Route::get('/house-create', [\App\Http\Controllers\Admin\HouseController::class, 'house_create']);
+    Route::post('/house-store', [\App\Http\Controllers\Admin\HouseController::class, 'house_store']);
+    Route::get('/house-edit/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'house_edit']);
+    Route::put('/house-update/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'house_update']);
+    Route::get('/house-delete/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'destroy']);
+    Route::get('/house-status', [\App\Http\Controllers\Admin\HouseController::class, 'change_status'])->name('house-status');
+
 });
 
 
