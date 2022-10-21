@@ -65,7 +65,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Price</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="house_price" value="{{ old('house_price') }}"
+                                            <input type="number" name="house_price" value="{{ old('house_price') }}"
                                                    class="form-control"
                                                    placeholder="House Price">
                                             <div class="error-message">

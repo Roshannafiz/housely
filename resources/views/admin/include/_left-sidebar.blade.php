@@ -13,13 +13,13 @@
 
                 <li class="submenu">
                     <a href="#"
-                       class="{{ 'house-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'houses' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'house-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                       class="{{ request()->is('house-view/*') || request()->is('house-edit/*') || request()->is('house-create') || request()->is('houses')  ? 'menu_active subdrop' : '' }}">
                         <i class="fa-solid fa-home"></i>
                         <span> House </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="submenu_class"
-                        style="{{ 'house-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'house-create' == request()->path() ? 'display: block' : '' }} {{ 'houses' == request()->path() ? 'display: block' : '' }}">
+                        style="{{ 'house-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'house-view/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ request()->is('house-view/*') ? 'display: block' : '' }} {{ 'house-create' == request()->path() ? 'display: block' : '' }} {{ 'houses' == request()->path() ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/houses') }}"
                                class="{{ 'houses' == request()->path() ? 'link-active-color' : '' }}">

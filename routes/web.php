@@ -147,17 +147,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/house-store', [\App\Http\Controllers\Admin\HouseController::class, 'house_store']);
     Route::get('/house-edit/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'house_edit']);
     Route::put('/house-update/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'house_update']);
+    Route::get('/house-view/{id}/{category_id}', [\App\Http\Controllers\Admin\HouseController::class, 'house_view']);
     Route::get('/house-delete/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'destroy']);
     Route::get('/house-status', [\App\Http\Controllers\Admin\HouseController::class, 'change_status'])->name('house-status');
 
 });
-
-
-
-
-
-
-
 
 
 

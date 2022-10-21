@@ -98,4 +98,24 @@
         });
     });
     /*======== 5. END CHANGE NAVBAR STATUS ========*/
+
+    /*======== 6. START CHANGE HOUSE STATUS ========*/
+    $(".toggle-class-house").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var house_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/house-status",
+            data: {
+                status: status,
+                house_id: house_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 6. END CHANGE HOUSE STATUS ========*/
 })(jQuery);
