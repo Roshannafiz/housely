@@ -36,8 +36,8 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="#ID: activate to sort column descending"
-                                                    style="width: 250.656px;">#ID
+                                                    aria-label="#SN: activate to sort column descending"
+                                                    style="width: 250.656px;">#SN
                                                 </th>
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -64,11 +64,11 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($categories as $category)
+                                            @foreach($categories as $key => $category)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
-                                                            {{ $category->id }}
+                                                            {{ $key+1 }}
                                                         </span>
                                                     </td>
                                                     <td class="sorting_1">

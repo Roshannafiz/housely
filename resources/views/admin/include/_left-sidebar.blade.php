@@ -188,6 +188,33 @@
                 </li>
 
 
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ 'agent-edit/'.request()->route('id') == request()->path() ? 'menu_active subdrop' : '' }} {{ 'agents' == request()->path() ? 'menu_active subdrop' : '' }} {{ 'agent-create' == request()->path() ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-users ml-0"></i>
+                        <span> Agent </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'agent-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'agent-create' == request()->path() ? 'display: block' : '' }} {{ 'agents' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/agents') }}"
+                               class="{{ 'agents' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Agent
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/agent-create') }}"
+                               class="{{ 'agent-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
                 <li class="submenu"><a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span
                             class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">

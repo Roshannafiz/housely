@@ -132,6 +132,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/brand-delete/{id}', [\App\Http\Controllers\Admin\BrandController::class, 'destroy']);
     Route::get('/brand-status', [\App\Http\Controllers\Admin\BrandController::class, 'change_status'])->name('brand-status');
 
+    // Agent Route
+    Route::get('/agents', [\App\Http\Controllers\Admin\AgentController::class, 'index']);
+    Route::get('/agent-create', [\App\Http\Controllers\Admin\AgentController::class, 'agent_create']);
+    Route::post('/agent-store', [\App\Http\Controllers\Admin\AgentController::class, 'agent_store']);
+    Route::get('/agent-edit/{id}', [\App\Http\Controllers\Admin\AgentController::class, 'agent_edit']);
+    Route::put('/agent-update/{id}', [\App\Http\Controllers\Admin\AgentController::class, 'agent_update']);
+    Route::get('/agent-delete/{id}', [\App\Http\Controllers\Admin\AgentController::class, 'destroy']);
+    Route::get('/agent-status', [\App\Http\Controllers\Admin\AgentController::class, 'change_status'])->name('agent-status');
+
+
     // Category Route
     Route::get('/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
     Route::get('/category-create', [\App\Http\Controllers\Admin\CategoryController::class, 'category_create']);

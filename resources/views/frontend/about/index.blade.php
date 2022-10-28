@@ -61,7 +61,7 @@
         <div class="grid grid-cols-1 pb-8 text-center">
             <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">How It Works</h3>
 
-            <p class="text-slate-400 max-w-xl mx-auto">A great plateform to buy, sell and rent your properties without
+            <p class="text-slate-400 max-w-xl mx-auto">A great plateform to buy your properties without
                 any agent or commisions.</p>
         </div><!--end grid-->
 
@@ -171,7 +171,7 @@
             <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Meet The Agent
                 Team</h3>
 
-            <p class="text-slate-400 max-w-xl mx-auto">A great plateform to buy, sell and rent your properties without
+            <p class="text-slate-400 max-w-xl mx-auto">A great plateform to buy your properties without
                 any agent or commisions.</p>
         </div><!--end grid-->
 

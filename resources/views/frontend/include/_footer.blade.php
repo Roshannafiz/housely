@@ -43,7 +43,7 @@
                             <a href="#" class="text-[22px] focus:outline-none">
                                 <img src="{{ asset('frontend/assets/images/logo-light.png') }}" alt="">
                             </a>
-                            <p class="mt-6 text-gray-300">A great plateform to buy, sell and rent your properties
+                            <p class="mt-6 text-gray-300">A great plateform to buy your properties
                                 without any agent or commisions.</p>
 
                         </div><!--end col-->
@@ -110,8 +110,8 @@
                             <div class="flex mt-6">
                                 <i data-feather="mail" class="w-5 h-5 text-green-600 mr-3"></i>
                                 <div class="">
-                                    <a href="mailto:mdroshannafiz@gmail.com"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">mdroshannafiz@gmail.com</a>
+                                    <a href="mailto:contact.roshannafiz@gmail.com"
+                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">Contact.roshannafiz@gmail.com</a>
                                 </div>
                             </div>
 
@@ -138,7 +138,7 @@
                 <div class="md:text-left text-center">
                     <p class="mb-0 text-gray-300">©
                         <script>document.write(new Date().getFullYear())</script>
-                        Hously. Design with <i class="mdi mdi-heart text-red-600"></i> by <a
+                        Hously. Develop <i class="mdi mdi-heart text-red-600"></i> By <a
                             href="http://roshannafiz.com/" target="_blank" class="text-reset">Roshan Nafiz</a>.
                     </p>
                 </div>

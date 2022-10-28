@@ -118,4 +118,24 @@
         });
     });
     /*======== 6. END CHANGE HOUSE STATUS ========*/
+
+    /*======== 7. START CHANGE AGENT STATUS ========*/
+    $(".toggle-class-agent").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var agent_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/agent-status",
+            data: {
+                status: status,
+                agent_id: agent_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 7. END CHANGE AGENT STATUS ========*/
 })(jQuery);

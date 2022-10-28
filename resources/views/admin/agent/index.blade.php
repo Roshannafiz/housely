@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Feature</h3>
+                    <h3 class="page-title mt-3">Our Agent</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,7 +12,7 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/feature-create') }}" class="btn btn-primary">
+                        <a href="{{ url('/agent-create') }}" class="btn btn-primary">
                             Create
                             <i class="fa fa-plus"></i>
                         </a>
@@ -42,23 +42,37 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="Title: activate to sort column descending"
-                                                    style="width: 250.656px;">Title
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 250.656px;">Name
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Speciality: activate to sort column descending"
+                                                    style="width: 250.656px;">Speciality
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Facebook Link: activate to sort column descending"
+                                                    style="width: 250.656px;">Facebook Link
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Linkedin Link: activate to sort column descending"
+                                                    style="width: 250.656px;">Linkedin Link
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Instagram Link: activate to sort column descending"
+                                                    style="width: 250.656px;">Instagram Link
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
-                                                    aria-label="Sub Title: activate to sort column ascending"
-                                                    style="width: 410.969px;">Sub Title
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Icon Code: activate to sort column ascending"
-                                                    style="width: 186.141px;">Icon Code
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Link: activate to sort column ascending"
-                                                    style="width: 186.141px;">Link
+                                                    aria-label="Image: activate to sort column ascending"
+                                                    style="width: 186.141px;">Image
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -74,7 +88,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($features as $key => $feature)
+                                            @foreach($agents as $key => $agent)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
@@ -82,27 +96,47 @@
                                                         </span>
                                                     </td>
                                                     <td class="sorting_1">
-                                                        {{ $feature->title }}
+                                                        {{ $agent->name }}
+                                                    </td>
+                                                    <td class="sorting_1">
+                                                        {{ $agent->speciality }}
+                                                    </td>
+                                                    <td class="sorting_1">
+                                                        @isset($agent->facebook_link)
+                                                            {{ $agent->facebook_link }}
+                                                        @else
+                                                            ( Not Set )
+                                                        @endisset
+                                                    </td>
+                                                    <td class="sorting_1">
+                                                        @isset($agent->linkedin_link)
+                                                            {{ $agent->linkedin_link }}
+                                                        @else
+                                                            ( Not Set )
+                                                        @endisset
+                                                    </td>
+                                                    <td class="sorting_1">
+                                                        @isset($agent->instagram_link)
+                                                            {{ $agent->instagram_link }}
+                                                        @else
+                                                            ( Not Set )
+                                                        @endisset
                                                     </td>
                                                     <td>
-                                                        {{ $feature->sub_title }}
+                                                        <img style="width: 90px; height: 90px"
+                                                             src="{{ asset('admin/images/upload-agent/' . $agent->image) }}"
+                                                             alt="">
                                                     </td>
                                                     <td>
-                                                        {{ $feature->icon_code }}
-                                                    </td>
-                                                    <td>
-                                                        {{ $feature->link }}
-                                                    </td>
-                                                    <td>
-                                                        <input data-id="{{ $feature->id }}" class="toggle-class-feature"
+                                                        <input data-id="{{ $agent->id }}" class="toggle-class-agent"
                                                                type="checkbox" data-onstyle="success"
                                                                data-offstyle="danger"
-                                                               data-toggle="toggle-feature" data-on="Active"
-                                                               data-off="Inactive" {{ $feature->status ? 'checked' : '' }}>
+                                                               data-toggle="toggle-agent" data-on="Active"
+                                                               data-off="Inactive" {{ $agent->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('feature-edit/' . $feature->id) }}">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mr-2">
+                                                            <a href="{{ url('agent-edit/' . $agent->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
@@ -110,7 +144,7 @@
                                                         </div>
 
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/feature-delete/' . $feature->id) }}">
+                                                            <a href="{{ url('/agent-delete/' . $agent->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>
