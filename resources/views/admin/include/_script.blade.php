@@ -4,6 +4,9 @@
 <script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"></script>
 <script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>
 <script src="{{ asset('admin/assets/js/chart.morris.js') }}"></script>
+<!-- Font Awesome 6 --->
+<script src="{{ asset('admin/assets/font-awesome-6/all.min.js') }}"></script>
+
 <!-------- Dropify Image ----->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js'></script>
 <script src="{{ asset('admin/assets/js/dropify.js') }}"></script>

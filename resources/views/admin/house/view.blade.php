@@ -90,6 +90,17 @@
                                         {{ $house->day_on_house }}
                                     </span>
                                 </p>
+
+                                <p style="line-height: 30px">
+                                    <b style="color: #009688">Feature: </b><br>
+                                    <span style="font-weight: bold">
+                                        @if($house->it_feature == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </span>
+                                </p>
                             </div>
                         </div>
                         <div class="row">

@@ -7,7 +7,7 @@
             any agent or commisions.</p>
 
         <div class="mt-6">
-            <a href="contact.html" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md"><i
+            <a href="{{ url('/contact-us') }}" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md"><i
                     class="uil uil-phone align-middle mr-2"></i> Contact us</a>
         </div>
     </div><!--end grid-->

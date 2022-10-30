@@ -1,3 +1,4 @@
+@section('title') {{ 'Home' }} @endsection
 <!----------- include Head File ----------->
 @include('frontend.include._head')
 
@@ -10,14 +11,14 @@
 <!-- Start -->
 <section class="relative lg:py-24 py-16">
 
-<!------------- include  Transparency Control File ------------->
+    <!------------- include  Transparency Control File ------------->
 @include('frontend.include._transparency-control')
 
 <!------------- include How To Work File ------------->
 @include('frontend.include._how-to-work')
 
 <!------------- include Featured Properties File ------------->
-@include('frontend.include._featured-properties')
+    @include('frontend.include._featured-properties')
 
 </section>
 <!--end section-->

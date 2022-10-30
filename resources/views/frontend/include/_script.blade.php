@@ -1,4 +1,6 @@
 <!-- JAVASCRIPTS -->
+<!-- Font Awesome 6 --->
+<script src="{{ asset('frontend/assets/font-awesome-6/all.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/libs/tiny-slider/min/tiny-slider.js') }}"></script>
 <script src="{{ asset('frontend/assets/libs/tobii/js/tobii.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/libs/feather-icons/feather.min.js') }}"></script>

@@ -37,29 +37,29 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="#SN: activate to sort column descending"
-                                                    style="width: 250.656px;">#SN
+                                                    style="width: 20px;">#SN
                                                 </th>
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Navbar: activate to sort column descending"
-                                                    style="width: 250.656px;">Navbar
+                                                    style="width: 200px;">Navbar
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Link: activate to sort column ascending"
-                                                    style="width: 186.141px;">Link
+                                                    style="width: 200px;">Link
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Status: activate to sort column ascending"
-                                                    style="width: 98.5938px;">Status
+                                                    style="width: 100px;">Status
                                                 </th>
 
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 149.391px;">Action
+                                                    style="width: 60px;">Action
                                                 </th>
                                             </tr>
                                             </thead>

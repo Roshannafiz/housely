@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/feathericon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Font Awesome 6 --->
+    <link rel="stylesheet" href="{{ asset('admin/assets/font-awesome-6/fontawesome.min.css') }}">
+
     <!-------- Dropify Image ----->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css'>
     <!----------- Bootstrap Toggle CDN ------------>

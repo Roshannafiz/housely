@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->text('house_description');
             $table->string('image');
             $table->string('gallery_image');
+            $table->string('it_feature')->default(0);
             $table->integer('house_sqf');
             $table->integer('house_bed');
             $table->integer('house_bath');

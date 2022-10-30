@@ -1,3 +1,4 @@
+@section('title') {{ 'Sign-Up' }} @endsection
 <!----------- include Head File ----------->
 @include('frontend.include._head')
 

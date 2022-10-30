@@ -159,6 +159,14 @@ class HouseController extends Controller
         $house->save();
     }
 
+    // Change Feature Using Ajax
+    public function change_feature(Request $request)
+    {
+        $house = House::find($request->house_id);
+        $house->it_feature = $request->it_feature;
+        $house->save();
+    }
+
     // Delete House
     public function destroy($id)
     {

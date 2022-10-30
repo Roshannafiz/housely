@@ -1,3 +1,4 @@
+@section('title') {{ 'Privacy' }} @endsection
 <!----------- include Head File ----------->
 @include('frontend.include._head')
 

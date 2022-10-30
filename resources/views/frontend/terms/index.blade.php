@@ -1,3 +1,4 @@
+@section('title') {{ 'Terms' }} @endsection
 <!----------- include Head File ----------->
 @include('frontend.include._head')
 

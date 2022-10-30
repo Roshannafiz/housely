@@ -141,6 +141,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/agent-delete/{id}', [\App\Http\Controllers\Admin\AgentController::class, 'destroy']);
     Route::get('/agent-status', [\App\Http\Controllers\Admin\AgentController::class, 'change_status'])->name('agent-status');
 
+    // Social Route
+    Route::get('/socials', [\App\Http\Controllers\Admin\SocialController::class, 'index']);
+    Route::get('/social-create', [\App\Http\Controllers\Admin\SocialController::class, 'social_create']);
+    Route::post('/social-store', [\App\Http\Controllers\Admin\SocialController::class, 'social_store']);
+    Route::get('/social-edit/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'social_edit']);
+    Route::put('/social-update/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'social_update']);
+    Route::get('/social-delete/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'destroy']);
+    Route::get('/social-status', [\App\Http\Controllers\Admin\SocialController::class, 'change_status'])->name('social-status');
+
+    // Contact Route
+    Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index']);
+    Route::get('/contact-create', [\App\Http\Controllers\Admin\ContactController::class, 'contact_create']);
+    Route::post('/contact-store', [\App\Http\Controllers\Admin\ContactController::class, 'contact_store']);
+    Route::get('/contact-edit/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'contact_edit']);
+    Route::put('/contact-update/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'contact_update']);
+    Route::get('/contact-delete/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy']);
+    Route::get('/contact-status', [\App\Http\Controllers\Admin\ContactController::class, 'change_status'])->name('contact-status');
 
     // Category Route
     Route::get('/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
@@ -160,6 +177,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/house-view/{id}/{category_id}', [\App\Http\Controllers\Admin\HouseController::class, 'house_view']);
     Route::get('/house-delete/{id}', [\App\Http\Controllers\Admin\HouseController::class, 'destroy']);
     Route::get('/house-status', [\App\Http\Controllers\Admin\HouseController::class, 'change_status'])->name('house-status');
+    Route::get('/house-feature', [\App\Http\Controllers\Admin\HouseController::class, 'change_feature'])->name('house-feature');
 
 });
 

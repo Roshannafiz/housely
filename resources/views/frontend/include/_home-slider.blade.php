@@ -28,10 +28,10 @@
                     <form class="text-start">
                         <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[24px]">
                             <div>
-                                <label class="form-label font-medium">Search : <span
+                                    <label class="form-label font-medium">Search : <span
                                         class="text-red-600">*</span></label>
                                 <div class="form-icon relative mt-2">
-                                    <i data-feather="search" class="w-4 h-4 absolute top-3 left-4"></i>
+                                    <i style="color: #15803D" data-feather="search" class="w-4 h-4 absolute top-3 left-4"></i>
                                     <input type="text" id="property-name" name="name"
                                            class="form-input bg-white dark:bg-slate-900 pl-12"
                                            placeholder="Search your home :" required="">

@@ -117,6 +117,25 @@
             },
         });
     });
+
+    /* HOUSE FEATURE YES OR NO */
+    $(".toggle-class-house-feature").change(function () {
+        var it_feature = $(this).prop("checked") == true ? 1 : 0;
+        var house_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/house-feature",
+            data: {
+                it_feature: it_feature,
+                house_id: house_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
     /*======== 6. END CHANGE HOUSE STATUS ========*/
 
     /*======== 7. START CHANGE AGENT STATUS ========*/
@@ -138,4 +157,44 @@
         });
     });
     /*======== 7. END CHANGE AGENT STATUS ========*/
+
+    /*======== 8. START CHANGE SOCIAL STATUS ========*/
+    $(".toggle-class-social").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var social_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/social-status",
+            data: {
+                status: status,
+                social_id: social_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 8. END CHANGE SOCIAL STATUS ========*/
+
+    /*======== 8. START CHANGE CONTACT STATUS ========*/
+    $(".toggle-class-contact").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var contact_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/contact-status",
+            data: {
+                status: status,
+                contact_id: contact_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 8. END CHANGE CONTACT STATUS ========*/
 })(jQuery);

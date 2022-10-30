@@ -2,19 +2,19 @@
 <html lang="en" class="light" dir="ltr">
 <head>
     <meta charset="UTF-8"/>
-    <title>Hously- Home</title>
+    <title>Hously - @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta content="Real Estate Website Landing Page" name="description"/>
     <meta content="Real Estate, buy, sell, Rent, tailwind Css" name="keywords"/>
     <meta name="author" content="Roshan"/>
-    <meta name="website" content="https://housely.roshannafiz.xyz/"/>
+    <meta name="website" content="https://housely.roshannafiz.com/"/>
     <meta name="email" content="mdroshannafiz@gmail.com"/>
     <meta name="version" content="1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}"/>
-
+    <!-- Font Awesome 6 --->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/font-awesome-6/fontawesome.min.css') }}">
     <!-- Css -->
     <link href="{{ asset('frontend/assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/libs/tobii/css/tobii.min.css') }}" rel="stylesheet">

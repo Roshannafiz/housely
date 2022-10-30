@@ -37,34 +37,38 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="#SN: activate to sort column descending"
-                                                    style="width: 250.656px;">#SN
+                                                    style="width: 20px;">#SN
                                                 </th>
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Category: activate to sort column descending"
-                                                    style="width: 250.656px;">Category
+                                                    style="width: 100px;">Category
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Title: activate to sort column ascending"
-                                                    style="width: 186.141px;">Title
+                                                    style="width:300px;">Title
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Image: activate to sort column ascending"
-                                                    style="width: 186.141px;">Image
+                                                    style="width: 50px;">Image
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Status: activate to sort column ascending"
-                                                    style="width: 98.5938px;">Status
+                                                    style="width: 80px;">Status
                                                 </th>
-
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Feature: activate to sort column ascending"
+                                                    style="width: 30px;">Feature
+                                                </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 149.391px;">Action
+                                                    style="width: 80px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
@@ -92,7 +96,14 @@
                                                                type="checkbox" data-onstyle="success"
                                                                data-offstyle="danger"
                                                                data-toggle="toggle-house" data-on="Active"
-                                                               data-off="Inactive" {{ $house->status ? 'checked' : '' }}>
+                                                               data-off="Inactivee" {{ $house->status ? 'checked' : '' }}>
+                                                    </td>
+                                                    <td>
+                                                        <input data-id="{{ $house->id }}" class="toggle-class-house-feature"
+                                                               type="checkbox" data-onstyle="dark"
+                                                               data-offstyle="danger"
+                                                               data-toggle="toggle-house-feature" data-on="Yes"
+                                                               data-off="No" {{ $house->it_feature ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
