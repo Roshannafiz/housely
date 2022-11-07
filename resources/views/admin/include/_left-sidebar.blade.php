@@ -14,6 +14,49 @@
                 <li class="submenu">
                     <a href="#"
                        class="{{ request()->is('house-view/*') || request()->is('house-edit/*') || request()->is('house-create') || request()->is('houses')  ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-book"></i>
+                        <span> Booking </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'house-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'house-view/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ request()->is('house-view/*') ? 'display: block' : '' }} {{ 'house-create' == request()->path() ? 'display: block' : '' }} {{ 'houses' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/bookings') }}"
+                               class="{{ 'houses' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Booking
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ request()->is('user-view/*') || request()->is('user-edit/*') || request()->is('user-change-password/*') || request()->is('user-create') || request()->is('users')  ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-users-line"></i>
+                        <span> User </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ 'user-edit/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'user-change-password/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ 'user-create' == request()->path() ? 'display: block' : '' }} {{ 'user-view/'.request()->route('id') == request()->path() ? 'display: block' : '' }} {{ request()->is('user-view/*') ? 'display: block' : '' }} {{ 'users' == request()->path() ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/users') }}"
+                               class="{{ 'users' == request()->path() ? 'link-active-color' : '' }}">
+                                Our User
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/user-create') }}"
+                               class="{{ 'user-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ request()->is('house-view/*') || request()->is('house-edit/*') || request()->is('house-create') || request()->is('houses')  ? 'menu_active subdrop' : '' }}">
                         <i class="fa-solid fa-home"></i>
                         <span> House </span>
                         <span class="menu-arrow"></span>

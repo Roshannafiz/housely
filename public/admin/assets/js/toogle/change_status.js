@@ -178,7 +178,7 @@
     });
     /*======== 8. END CHANGE SOCIAL STATUS ========*/
 
-    /*======== 8. START CHANGE CONTACT STATUS ========*/
+    /*======== 9. START CHANGE CONTACT STATUS ========*/
     $(".toggle-class-contact").change(function () {
         var status = $(this).prop("checked") == true ? 1 : 0;
         var contact_id = $(this).data("id");
@@ -196,5 +196,25 @@
             },
         });
     });
-    /*======== 8. END CHANGE CONTACT STATUS ========*/
+    /*======== 9. END CHANGE CONTACT STATUS ========*/
+
+    /*======== 10. START CHANGE CONTACT STATUS ========*/
+    $(".toggle-class-user").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var user_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/user-status",
+            data: {
+                status: status,
+                user_id: user_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 10. END CHANGE CONTACT STATUS ========*/
 })(jQuery);

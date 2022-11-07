@@ -58,7 +58,7 @@
                                 </li>
 
                                 <li class="mt-[10px]">
-                                    <a href="{{ url('/features') }}"
+                                    <a href="{{ url('/feature') }}"
                                        class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
                                             class="uil uil-angle-right-b me-1"></i> Services</a>
                                 </li>
@@ -87,7 +87,7 @@
                                 </li>
 
                                 <li class="mt-[10px]">
-                                    <a href="{{ url('/contact') }}"
+                                    <a href="{{ url('/contact-us') }}"
                                        class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
                                             class="uil uil-angle-right-b me-1"></i> Contact</a>
                                 </li>

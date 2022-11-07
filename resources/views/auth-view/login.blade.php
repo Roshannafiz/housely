@@ -15,6 +15,14 @@
                 </a>
 
                 <h5 class="my-6 text-xl font-semibold">Login</h5>
+                <div style="padding-bottom: 20px; color: green !important;">
+                    @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
+                </div>
+
                 <div style="padding-bottom: 20px; color: red !important;">
                     @if(session()->has('error_message'))
                         <div class="alert alert-danger">
@@ -22,11 +30,12 @@
                         </div>
                     @endif
                 </div>
+
                 <div>
                     @if(session('failed'))
-                        <p style="color: green">{{ session('failed') }}</p>
+                        <p style="color: red">{{ session('failed') }}</p>
                     @elseif(session('status'))
-                        <p style="color: red">{{ session('status') }}</p>
+                        <p style="color: green">{{ session('status') }}</p>
                     @endif
                 </div>
                 <form action="{{ route('login') }}" method="POST" class="text-left">
