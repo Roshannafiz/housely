@@ -11,7 +11,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        // Get All Category
         $categories = Category::all();
         return view('admin.category.index', compact('categories'));
     }
@@ -57,7 +56,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->name = $request->name;
 
-        // Brand Image
+        // Category Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-category/' . $category->image;
             if (File::exists($path)) {
@@ -81,11 +80,10 @@ class CategoryController extends Controller
         $category->save();
     }
 
-    // Delete Category
     public function destroy($id)
     {
         $delete_data = Category::find($id);
-        // Category Image
+        // Category Delete With Image
         $path = 'admin/images/upload-category/' . $delete_data->image;
         if (File::exists($path)) {
             File::delete($path);

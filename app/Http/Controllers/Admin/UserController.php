@@ -68,7 +68,7 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->date_of_birth = $request->date_of_birth;
-        // User Image
+        // User Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-user/' . $user->image;
             if (File::exists($path)) {
@@ -117,15 +117,15 @@ class UserController extends Controller
     // Change Status Using Ajax
     public function change_status(Request $request)
     {
-        $house = User::find($request->user_id);
-        $house->status = $request->status;
-        $house->save();
+        $user = User::find($request->user_id);
+        $user->status = $request->status;
+        $user->save();
     }
 
     public function destroy($id)
     {
         $delete_data = User::find($id);
-        // User Image
+        // User Delete With Image
         $path = 'admin/images/upload-user/' . $delete_data->image;
         if (File::exists($path)) {
             File::delete($path);

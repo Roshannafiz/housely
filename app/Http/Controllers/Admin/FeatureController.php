@@ -10,7 +10,6 @@ class FeatureController extends Controller
 {
     public function index()
     {
-        // Get All Feature
         $features = Feature::all();
         return view('admin.feature.index', compact('features'));
     }
@@ -24,16 +23,14 @@ class FeatureController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
+            'description' => 'required',
             'icon_code' => 'required',
-            'link' => 'required',
         ]);
 
         $feature = new Feature();
         $feature->title = $request->title;
-        $feature->sub_title = $request->sub_title;
+        $feature->description = $request->description;
         $feature->icon_code = $request->icon_code;
-        $feature->link = $request->link;
         $feature->save();
         return redirect()->back()->with('create_message', "Featured Created Successfully");
 
@@ -41,7 +38,6 @@ class FeatureController extends Controller
 
     public function feature_edit($id)
     {
-        // Get Feature
         $feature = Feature::find($id);
         return view('admin.feature.edit', compact('feature'));
     }
@@ -50,16 +46,14 @@ class FeatureController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
+            'description' => 'required',
             'icon_code' => 'required',
-            'link' => 'required',
         ]);
 
         $feature = Feature::find($id);
         $feature->title = $request->title;
-        $feature->sub_title = $request->sub_title;
+        $feature->description = $request->description;
         $feature->icon_code = $request->icon_code;
-        $feature->link = $request->link;
         $feature->update();
         return redirect('/features')->with('update_message', "Featured Updated Successfully");
 
@@ -68,12 +62,11 @@ class FeatureController extends Controller
     // Change Status Using Ajax
     public function change_status(Request $request)
     {
-        $doctor = Feature::find($request->feature_id);
-        $doctor->status = $request->status;
-        $doctor->save();
+        $feature = Feature::find($request->feature_id);
+        $feature->status = $request->status;
+        $feature->save();
     }
 
-    // Delete Feature
     public function destroy($id)
     {
         $delete_data = Feature::find($id);

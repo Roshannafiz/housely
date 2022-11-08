@@ -11,7 +11,6 @@ class BrandController extends Controller
 {
     public function index()
     {
-        // Get All Brand
         $brands = Brand::all();
         return view('admin.brand.index', compact('brands'));
     }
@@ -43,7 +42,6 @@ class BrandController extends Controller
 
     public function brand_edit($id)
     {
-        // Get Banner
         $brand = Brand::find($id);
         return view('admin.brand.edit', compact('brand'));
     }
@@ -56,7 +54,7 @@ class BrandController extends Controller
         $brand = Brand::find($id);
         $brand->name = $request->name;
 
-        // Brand Image
+        // Brand Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-brand/' . $brand->image;
             if (File::exists($path)) {
@@ -80,11 +78,10 @@ class BrandController extends Controller
         $brand->save();
     }
 
-    // Delete Brand
     public function destroy($id)
     {
         $delete_data = Brand::find($id);
-        // Banner Image
+        // Banner Delete With Image
         $path = 'admin/images/upload-brand/' . $delete_data->image;
         if (File::exists($path)) {
             File::delete($path);

@@ -16,19 +16,33 @@
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <span class="user-img">
-                    <img class="rounded-circle"
-                         src="{{ asset('admin/images/upload-user/' . \Illuminate\Support\Facades\Auth::user()->image) }}"
-                         width="31"
-                         alt="Admin">
+                    @if(\Illuminate\Support\Facades\Auth::user()->image)
+                        <img class="rounded-circle"
+                             src="{{ asset('admin/images/upload-user/' . \Illuminate\Support\Facades\Auth::user()->image) }}"
+                             width="31"
+                             alt="Admin Image">
+                    @else
+                        <img class="rounded-circle"
+                             src="{{ asset('admin/assets/img/profiles/user.png') }}"
+                             width="31"
+                             alt="Admin Image">
+                    @endif
                 </span>
             </a>
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img
-                            src="{{ asset('admin/images/upload-user/' . \Illuminate\Support\Facades\Auth::user()->image) }}"
-                            alt="User Image"
-                            class="avatar-img rounded-circle">
+                        @if(\Illuminate\Support\Facades\Auth::user()->image)
+                            <img
+                                src="{{ asset('admin/images/upload-user/' . \Illuminate\Support\Facades\Auth::user()->image) }}"
+                                alt="User Image"
+                                class="avatar-img rounded-circle">
+                        @else
+                            <img
+                                src="{{ asset('admin/assets/img/profiles/user.png') }}"
+                                alt="User Image"
+                                class="avatar-img rounded-circle">
+                        @endif
                     </div>
                     <div class="user-text">
                         <h6>

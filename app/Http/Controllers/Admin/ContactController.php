@@ -10,7 +10,6 @@ class ContactController extends Controller
 {
     public function index()
     {
-        // Get All Contact
         $contacts = Contact::all();
         return view('admin.contact.index', compact('contacts'));
     }
@@ -59,9 +58,9 @@ class ContactController extends Controller
     // Change Status Using Ajax
     public function change_status(Request $request)
     {
-        $social = Contact::find($request->contact_id);
-        $social->status = $request->status;
-        $social->save();
+        $contact = Contact::find($request->contact_id);
+        $contact->status = $request->status;
+        $contact->save();
     }
 
     public function destroy($id)

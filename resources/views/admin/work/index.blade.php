@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Feature</h3>
+                    <h3 class="page-title mt-3">Our Work</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,7 +12,7 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/feature-create') }}" class="btn btn-primary">
+                        <a href="{{ url('/work-create') }}" class="btn btn-primary">
                             Create
                             <i class="fa fa-plus"></i>
                         </a>
@@ -43,12 +43,7 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Title: activate to sort column descending"
-                                                    style="width: 200px;">Title
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Sub Title: activate to sort column ascending"
-                                                    style="width: 200px;">Sub Title
+                                                    style="width: 150px;">Title
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -57,19 +52,23 @@
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
+                                                    aria-label="Description: activate to sort column ascending"
+                                                    style="width: 250px;">Description
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
                                                     aria-label="Status: activate to sort column ascending"
                                                     style="width: 100px;">Status
                                                 </th>
-
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 100px;">Action
+                                                    style="width: 90px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($features as $key => $feature)
+                                            @foreach($works as $key => $work)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
@@ -77,24 +76,24 @@
                                                         </span>
                                                     </td>
                                                     <td class="sorting_1">
-                                                        {{ $feature->title }}
+                                                        {{ $work->title }}
                                                     </td>
                                                     <td>
-                                                        {!! $feature->description !!}
+                                                        {{ $work->icon_code }}
                                                     </td>
                                                     <td>
-                                                        {{ $feature->icon_code }}
+                                                        {!! $work->description  !!}
                                                     </td>
                                                     <td>
-                                                        <input data-id="{{ $feature->id }}" class="toggle-class-feature"
+                                                        <input data-id="{{ $work->id }}" class="toggle-class-work"
                                                                type="checkbox" data-onstyle="success"
                                                                data-offstyle="danger"
-                                                               data-toggle="toggle-feature" data-on="Active"
-                                                               data-off="Inactive" {{ $feature->status ? 'checked' : '' }}>
+                                                               data-toggle="toggle-work" data-on="Active"
+                                                               data-off="Inactive" {{ $work->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('feature-edit/' . $feature->id) }}">
+                                                            <a href="{{ url('work-edit/' . $work->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
@@ -102,7 +101,7 @@
                                                         </div>
 
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/feature-delete/' . $feature->id) }}">
+                                                            <a href="{{ url('/work-delete/' . $work->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>
@@ -115,7 +114,6 @@
                                         </table>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

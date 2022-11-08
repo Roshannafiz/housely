@@ -12,7 +12,7 @@ class SubnavbarController extends Controller
 {
     public function index()
     {
-        // Get Sub-Navbar
+        // Get Sub-Navbar With Navbar
         $subnavbars = DB::table('subnavbars')
             ->join('navbars', 'subnavbars.navbar_id', '=', 'navbars.id')->select([
                 'subnavbars.*',
@@ -23,7 +23,7 @@ class SubnavbarController extends Controller
 
     public function sub_navbar_create()
     {
-        // Get All Navbar
+        // Get All Active Navbar
         $navbars = Navbar::where('status', '=', 1)->get();
         return view('admin.sub-navbar.create', compact('navbars'));
     }
@@ -46,9 +46,9 @@ class SubnavbarController extends Controller
 
     public function sub_navbar_edit($id)
     {
-        // Get Sub-Navbar
-        $subnavbar = SubNavbar::find($id);
+        // Get All Navbar
         $navbars = Navbar::all();
+        $subnavbar = SubNavbar::find($id);
         return view('admin.sub-navbar.edit', compact('subnavbar', 'navbars'));
     }
 
@@ -67,7 +67,6 @@ class SubnavbarController extends Controller
         return redirect('/subnavbars')->with('update_message', "Sub-Navbar Updated Successfully");
     }
 
-    // Delete Sub-Navbar
     public function destroy($id)
     {
         $delete_data = Subnavbar::find($id);

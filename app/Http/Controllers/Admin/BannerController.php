@@ -11,7 +11,6 @@ class BannerController extends Controller
 {
     public function index()
     {
-        // Get All Banners
         $banners = Banner::all();
         return view('admin.banner.index', compact('banners'));
     }
@@ -45,7 +44,6 @@ class BannerController extends Controller
 
     public function banner_edit($id)
     {
-        // Get Banner
         $banner = Banner::find($id);
         return view('admin.banner.edit', compact('banner'));
     }
@@ -60,7 +58,7 @@ class BannerController extends Controller
         $banner->title = $request->title;
         $banner->sub_title = $request->sub_title;
 
-        // Banner Image
+        // Banner Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-banner/' . $banner->image;
             if (File::exists($path)) {
@@ -79,16 +77,15 @@ class BannerController extends Controller
     // Change Status Using Ajax
     public function change_status(Request $request)
     {
-        $doctor = Banner::find($request->banner_id);
-        $doctor->status = $request->status;
-        $doctor->save();
+        $banner = Banner::find($request->banner_id);
+        $banner->status = $request->status;
+        $banner->save();
     }
 
-    // Delete Banner
     public function destroy($id)
     {
         $delete_data = Banner::find($id);
-        // Banner Image
+        // Banner Delete With Image
         $path = 'admin/images/upload-banner/' . $delete_data->image;
         if (File::exists($path)) {
             File::delete($path);

@@ -48,15 +48,15 @@
                                     </div>
 
                                     <div class="row">
-                                        <label class="col-lg-3 col-form-label">Sub Title</label>
+                                        <label class="col-lg-3 col-form-label">Description</label>
                                         <div class="col-lg-9">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input type="text" name="sub_title" placeholder="Sub Title"
-                                                               class="form-control" value="{{ old('sub_title') }}">
+                                                        <textarea name="description" rows="5" placeholder="Description"
+                                                                  class="form-control">{{ old('description') }}</textarea>
                                                         <div class="error-message">
-                                                            @error('sub_title')
+                                                            @error('description')
                                                             <span>! {{ $message }}</span>
                                                             @enderror
                                                         </div>
@@ -69,23 +69,11 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Icon Code</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="icon_code" value="{{ old('icon_code') }}" class="form-control"
+                                            <input type="text" name="icon_code" value="{{ old('icon_code') }}"
+                                                   class="form-control"
                                                    placeholder="Icon Code">
                                             <div class="error-message">
                                                 @error('icon_code')
-                                                <span>! {{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Link</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="link" value="{{ old('link') }}" class="form-control" placeholder="Link">
-                                            <div class="error-message">
-                                                @error('link')
                                                 <span>! {{ $message }}</span>
                                                 @enderror
                                             </div>

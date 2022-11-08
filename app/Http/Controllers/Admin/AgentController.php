@@ -11,7 +11,6 @@ class AgentController extends Controller
 {
     public function index()
     {
-        // Get All Agent
         $agents = Agent::all();
         return view('admin.agent.index', compact('agents'));
     }
@@ -65,7 +64,7 @@ class AgentController extends Controller
         $agent->facebook_link = $request->facebook_link;
         $agent->linkedin_link = $request->linkedin_link;
         $agent->instagram_link = $request->instagram_link;
-        // Agent Image
+        // Agent Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-agent/' . $agent->image;
             if (File::exists($path)) {
@@ -84,16 +83,15 @@ class AgentController extends Controller
     // Change Status Using Ajax
     public function change_status(Request $request)
     {
-        $brand = Agent::find($request->agent_id);
-        $brand->status = $request->status;
-        $brand->save();
+        $agent = Agent::find($request->agent_id);
+        $agent->status = $request->status;
+        $agent->save();
     }
 
-    // Delete Brand
     public function destroy($id)
     {
         $delete_data = Agent::find($id);
-        // Agent Image
+        // Delete Agent With Image
         $path = 'admin/images/upload-agent/' . $delete_data->image;
         if (File::exists($path)) {
             File::delete($path);

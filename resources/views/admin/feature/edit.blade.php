@@ -50,15 +50,15 @@
                                     </div>
 
                                     <div class="row">
-                                        <label class="col-lg-3 col-form-label">Sub Title</label>
+                                        <label class="col-lg-3 col-form-label">Description</label>
                                         <div class="col-lg-9">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input type="text" name="sub_title" placeholder="Sub Title"
-                                                               class="form-control" value="{{ $feature->sub_title }}">
+                                                        <textarea name="description" rows="5" placeholder="Description"
+                                                                  class="form-control">{!! $feature->description !!}</textarea>
                                                         <div class="error-message">
-                                                            @error('sub_title')
+                                                            @error('description')
                                                             <span>! {{ $message }}</span>
                                                             @enderror
                                                         </div>
@@ -76,21 +76,6 @@
                                                        class="form-control" value="{{ $feature->icon_code }}">
                                                 <div class="error-message">
                                                     @error('icon_code')
-                                                    <span>! {{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Link</label>
-                                        <div class="col-lg-9">
-                                            <div class="form-group">
-                                                <input type="text" name="link" placeholder="Link"
-                                                       class="form-control" value="{{ $feature->link }}">
-                                                <div class="error-message">
-                                                    @error('link')
                                                     <span>! {{ $message }}</span>
                                                     @enderror
                                                 </div>

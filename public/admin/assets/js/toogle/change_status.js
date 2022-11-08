@@ -217,4 +217,23 @@
         });
     });
     /*======== 10. END CHANGE CONTACT STATUS ========*/
+    /*======== 11. START CHANGE HOW-TO-WORK STATUS ========*/
+    $(".toggle-class-work").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var work_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/work-status",
+            data: {
+                status: status,
+                work_id: work_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 11. END CHANGE HOW-TO-WORK STATUS ========*/
 })(jQuery);

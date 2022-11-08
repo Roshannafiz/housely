@@ -123,6 +123,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/feature-status', [\App\Http\Controllers\Admin\FeatureController::class, 'change_status'])->name('feature-status');
     Route::get('/feature-delete/{id}', [\App\Http\Controllers\Admin\FeatureController::class, 'destroy']);
 
+    // How To Work Route
+    Route::get('/works', [\App\Http\Controllers\Admin\WorkController::class, 'index']);
+    Route::get('/work-create', [\App\Http\Controllers\Admin\WorkController::class, 'work_create']);
+    Route::post('/work-store', [\App\Http\Controllers\Admin\WorkController::class, 'work_store']);
+    Route::get('/work-edit/{id}', [\App\Http\Controllers\Admin\WorkController::class, 'work_edit']);
+    Route::put('/work-update/{id}', [\App\Http\Controllers\Admin\WorkController::class, 'work_update']);
+    Route::get('/work-status', [\App\Http\Controllers\Admin\WorkController::class, 'change_status'])->name('work-status');
+    Route::get('/work-delete/{id}', [\App\Http\Controllers\Admin\WorkController::class, 'destroy']);
+
     // Brand Route
     Route::get('/brands', [\App\Http\Controllers\Admin\BrandController::class, 'index']);
     Route::get('/brand-create', [\App\Http\Controllers\Admin\BrandController::class, 'brand_create']);

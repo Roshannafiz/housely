@@ -18,10 +18,13 @@
                         <div class="profile-header">
                             <div class="row align-items-center">
                                 <div class="col-auto profile-image">
-                                    <a href="#">
+                                    @if($user->image)
                                         <img style="width: 120px; height: 120px" class="rounded-circle" alt="User Image"
                                              src="{{ asset('admin/images/upload-user/' . $user->image) }}">
-                                    </a>
+                                    @else
+                                        <img style="width: 120px; height: 120px" class="rounded-circle" alt="User Image"
+                                             src="{{ asset('admin/assets/img/profiles/user.png') }}">
+                                    @endif
                                 </div>
                                 <div class="col ml-md-n2 profile-user-info">
                                     <h4 class="user-name mb-3">

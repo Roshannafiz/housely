@@ -12,6 +12,15 @@
                                     <li class="breadcrumb-item active">Have A Nice Day!</li>
                                 </ul>
                             </div>
+
+                            <div class="col-sm-12">
+                                <div class="text-right">
+                                    <a href="{{ url('/users') }}" type="submit" class="btn btn-primary">
+                                        <i class="fa fa-arrow-left"></i>
+                                        Go User
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">

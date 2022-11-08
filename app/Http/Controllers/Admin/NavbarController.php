@@ -10,16 +10,13 @@ class NavbarController extends Controller
 {
     public function index()
     {
-        // Get All Navbar
         $navbars = Navbar::all();
         return view('admin.navbar.index', compact('navbars'));
     }
 
     public function navbar_create()
     {
-        // Get Active Navbar
-        $navbars = Navbar::where('status', '=', 1)->get();
-        return view('admin.navbar.create', compact('navbars'));
+        return view('admin.navbar.create');
     }
 
     public function navbar_store(Request $request)
@@ -37,7 +34,6 @@ class NavbarController extends Controller
 
     public function navbar_edit($id)
     {
-        // Get Navbar
         $navbar = Navbar::find($id);
         return view('admin.navbar.edit', compact('navbar'));
     }
@@ -58,12 +54,11 @@ class NavbarController extends Controller
     // Change Status Using Ajax
     public function change_status(Request $request)
     {
-        $brand = Navbar::find($request->navbar_id);
-        $brand->status = $request->status;
-        $brand->save();
+        $navbar = Navbar::find($request->navbar_id);
+        $navbar->status = $request->status;
+        $navbar->save();
     }
 
-    // Delete Navbar
     public function destroy($id)
     {
         $delete_data = Navbar::find($id);

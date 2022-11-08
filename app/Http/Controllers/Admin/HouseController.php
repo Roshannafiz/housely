@@ -14,7 +14,7 @@ class HouseController extends Controller
 {
     public function index()
     {
-        // Get All House
+        // Get All House With Category
         $houses = DB::table('houses')
             ->join('categories', 'houses.category_id', '=', 'categories.id')->select([
                 'houses.*',
@@ -26,7 +26,7 @@ class HouseController extends Controller
 
     public function house_create()
     {
-        // Get Active Category
+        // Get All Active Category
         $categories = Category::where('status', '=', 1)->get();
         return view('admin.house.create', compact('categories'));
     }
@@ -84,9 +84,8 @@ class HouseController extends Controller
 
     public function house_edit($id)
     {
-        // Get Category
+        // Get All Category
         $categories = Category::all();
-        // Get House Detail
         $house = House::find($id);
         return view('admin.house.edit', compact('house', 'categories'));
     }
@@ -113,7 +112,7 @@ class HouseController extends Controller
         $house->house_bath = $request->house_bath;
         $house->day_on_house = $request->day_on_house;
 
-        // House Image
+        // House Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-house/' . $house->image;
             if (File::exists($path)) {
@@ -126,7 +125,7 @@ class HouseController extends Controller
             $house->image = $filename;
         }
 
-        // House Gallery Image
+        // House Gallery Image Update
         $images = [];
         if ($request->hasfile('gallery_image')) {
             $files = $request->file('gallery_image');
@@ -167,16 +166,15 @@ class HouseController extends Controller
         $house->save();
     }
 
-    // Delete House
     public function destroy($id)
     {
         $delete_data = House::find($id);
-        // House Image
+        // House Delete With Image
         $path = 'admin/images/upload-house/' . $delete_data->image;
         if (File::exists($path)) {
             File::delete($path);
         }
-        // House Gallery Image
+        // House Delete With Gallery Image
         $images = json_decode($delete_data->gallery_image);
         foreach ($images as $image) {
             $image_path = 'admin/images/upload-house-gallery/' . $image;

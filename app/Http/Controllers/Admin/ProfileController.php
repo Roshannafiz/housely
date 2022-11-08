@@ -15,7 +15,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        // Get User Profile
+        // Get Login User Profile
         $user = Auth::user();
         return view('admin.profile.index', compact('user'));
     }
@@ -38,7 +38,7 @@ class ProfileController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->date_of_birth = $request->date_of_birth;
-        // User Image
+        // User Image Update
         if ($request->hasFile('image')) {
             $path = 'admin/images/upload-user/' . $user->image;
             if (File::exists($path)) {

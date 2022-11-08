@@ -10,7 +10,6 @@ class SocialController extends Controller
 {
     public function index()
     {
-        // Get All Social
         $socials = Social::all();
         return view('admin.social.index', compact('socials'));
     }
