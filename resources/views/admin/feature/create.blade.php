@@ -72,6 +72,7 @@
                                             <input type="text" name="icon_code" value="{{ old('icon_code') }}"
                                                    class="form-control"
                                                    placeholder="Icon Code">
+                                            <p style="font-size: 14px; color: gray" class="py-2">( Must Be Use mdi mdi icon )</p>
                                             <div class="error-message">
                                                 @error('icon_code')
                                                 <span>! {{ $message }}</span>

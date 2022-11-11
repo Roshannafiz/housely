@@ -55,7 +55,6 @@
                                                     aria-label="Status: activate to sort column ascending"
                                                     style="width: 100px;">Status
                                                 </th>
-
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"

@@ -74,6 +74,7 @@
                                             <div class="form-group">
                                                 <input type="text" name="icon_code" placeholder="Sub Title"
                                                        class="form-control" value="{{ $feature->icon_code }}">
+                                                <p style="font-size: 14px; color: gray">( Must Be Use mdi mdi icon )</p>
                                                 <div class="error-message">
                                                     @error('icon_code')
                                                     <span>! {{ $message }}</span>

@@ -23,7 +23,6 @@
           rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/icons.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/tailwind.min.css') }}"/>
-
 </head>
 
 <body class="dark:bg-slate-900">

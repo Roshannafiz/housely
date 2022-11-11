@@ -54,9 +54,9 @@
                                     </span>
                                 </p>
 
-                                <p style="line-height: 30px">
+                                <p style="line-height: 30px; text-align: justify">
                                     <b style="color: #009688">Description: </b><br>
-                                    <span style="font-weight: bold">
+                                    <span style="font-weight: bold; text-align: justify">
                                         {{ $house->house_description }}
                                     </span>
                                 </p>
@@ -98,6 +98,17 @@
                                             Yes
                                         @else
                                             No
+                                        @endif
+                                    </span>
+                                </p>
+
+                                <p style="line-height: 30px">
+                                    <b style="color: #009688">Status: </b><br>
+                                    <span style="font-weight: bold">
+                                        @if($house->status == 1)
+                                            Active
+                                        @else
+                                            In Active
                                         @endif
                                     </span>
                                 </p>

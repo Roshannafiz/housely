@@ -61,7 +61,7 @@
                                                             <span>! {{ $message }}</span>
                                                             @enderror
                                                         </div>
-                                                        <p style="font-size: 13px; color: gray">(Must Be Use Font Awesome 6 Code)</p>
+                                                        <p style="font-size: 13px; color: gray">( Must Be Use uil uil icon )</p>
                                                     </div>
                                                 </div>
                                             </div>

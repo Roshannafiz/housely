@@ -37,95 +37,98 @@
                             <div class="uil uil-pen lg:text-[150px] text-7xl text-black/5 dark:text-white/5"></div>
                         </div>
                     </div>
+                    @foreach($display_footers as $footer)
+                        <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px] -mt-24">
+                            <div class="lg:col-span-4 md:col-span-12">
+                                <a href="#" class="text-[22px] focus:outline-none">
+                                    <img src="{{ asset('frontend/assets/images/logo-light.png') }}" alt="">
+                                </a>
+                                <p class="mt-6 text-gray-300">
+                                    {{ $footer->short_description }}
+                                </p>
 
-                    <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px] -mt-24">
-                        <div class="lg:col-span-4 md:col-span-12">
-                            <a href="#" class="text-[22px] focus:outline-none">
-                                <img src="{{ asset('frontend/assets/images/logo-light.png') }}" alt="">
-                            </a>
-                            <p class="mt-6 text-gray-300">A great plateform to buy your properties
-                                without any agent or commisions.</p>
+                            </div><!--end col-->
 
-                        </div><!--end col-->
+                            <div class="lg:col-span-2 md:col-span-4">
+                                <h5 class="tracking-[1px] text-gray-100 font-semibold">Company</h5>
+                                <ul class="list-none footer-list mt-6">
+                                    <li>
+                                        <a href="{{ url('/about-us') }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
+                                                class="uil uil-angle-right-b me-1"></i> About us</a>
+                                    </li>
 
-                        <div class="lg:col-span-2 md:col-span-4">
-                            <h5 class="tracking-[1px] text-gray-100 font-semibold">Company</h5>
-                            <ul class="list-none footer-list mt-6">
-                                <li>
-                                    <a href="{{ url('/about-us') }}"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                            class="uil uil-angle-right-b me-1"></i> About us</a>
-                                </li>
+                                    <li class="mt-[10px]">
+                                        <a href="{{ url('/feature') }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
+                                                class="uil uil-angle-right-b me-1"></i> Services</a>
+                                    </li>
 
-                                <li class="mt-[10px]">
-                                    <a href="{{ url('/feature') }}"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                            class="uil uil-angle-right-b me-1"></i> Services</a>
-                                </li>
+                                    <li class="mt-[10px]">
+                                        <a href="{{ url('/login') }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
+                                                class="uil uil-angle-right-b me-1"></i> Login</a>
+                                    </li>
+                                </ul>
+                            </div><!--end col-->
 
-                                <li class="mt-[10px]">
-                                    <a href="{{ url('/login') }}"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                            class="uil uil-angle-right-b me-1"></i> Login</a>
-                                </li>
-                            </ul>
-                        </div><!--end col-->
+                            <div class="lg:col-span-3 md:col-span-4">
+                                <h5 class="tracking-[1px] text-gray-100 font-semibold">Usefull Links</h5>
+                                <ul class="list-none footer-list mt-6">
+                                    <li>
+                                        <a href="{{ url('/terms') }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
+                                                class="uil uil-angle-right-b me-1"></i> Terms of Services</a>
+                                    </li>
 
-                        <div class="lg:col-span-3 md:col-span-4">
-                            <h5 class="tracking-[1px] text-gray-100 font-semibold">Usefull Links</h5>
-                            <ul class="list-none footer-list mt-6">
-                                <li>
-                                    <a href="{{ url('/terms') }}"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                            class="uil uil-angle-right-b me-1"></i> Terms of Services</a>
-                                </li>
+                                    <li class="mt-[10px]">
+                                        <a href="{{ url('/privacy') }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
+                                                class="uil uil-angle-right-b me-1"></i> Privacy Policy</a>
+                                    </li>
 
-                                <li class="mt-[10px]">
-                                    <a href="{{ url('/privacy') }}"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                            class="uil uil-angle-right-b me-1"></i> Privacy Policy</a>
-                                </li>
+                                    <li class="mt-[10px]">
+                                        <a href="{{ url('/contact-us') }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
+                                                class="uil uil-angle-right-b me-1"></i> Contact</a>
+                                    </li>
+                                </ul>
+                            </div><!--end col-->
 
-                                <li class="mt-[10px]">
-                                    <a href="{{ url('/contact-us') }}"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                            class="uil uil-angle-right-b me-1"></i> Contact</a>
-                                </li>
-                            </ul>
-                        </div><!--end col-->
-
-                        <div class="lg:col-span-3 md:col-span-4">
-                            <h5 class="tracking-[1px] text-gray-100 font-semibold">Contact Details</h5>
+                            <div class="lg:col-span-3 md:col-span-4">
+                                <h5 class="tracking-[1px] text-gray-100 font-semibold">Contact Details</h5>
 
 
-                            <div class="flex mt-6">
-                                <i data-feather="map-pin" class="w-5 h-5 text-green-600 mr-3"></i>
-                                <div class="">
-                                    <h6 class="text-gray-300 mb-2">
-                                        Rajshahi Asam Coloni<br> Suite 558, <br>Bangladesh
-                                    </h6>
+                                <div class="flex mt-6">
+                                    <i data-feather="map-pin" class="w-5 h-5 text-green-600 mr-3"></i>
+                                    <div class="">
+                                        <h6 class="text-gray-300 mb-2">
+                                            {{ $footer->address }}
+                                        </h6>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="flex mt-6">
-                                <i data-feather="mail" class="w-5 h-5 text-green-600 mr-3"></i>
-                                <div class="">
-                                    <a href="mailto:contact.roshannafiz@gmail.com"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">Contact.roshannafiz@gmail.com</a>
+                                <div class="flex mt-6">
+                                    <i data-feather="mail" class="w-5 h-5 text-green-600 mr-3"></i>
+                                    <div class="">
+                                        <a href="mailto:{{ $footer->email }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">
+                                            {{ $footer->email }}
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="flex mt-6">
-                                <i data-feather="phone" class="w-5 h-5 text-green-600 mr-3"></i>
-                                <div class="">
-                                    <a href="tel:+152534-468-854"
-                                       class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">
-                                        +880 1862701717
-                                    </a>
+                                <div class="flex mt-6">
+                                    <i data-feather="phone" class="w-5 h-5 text-green-600 mr-3"></i>
+                                    <div class="">
+                                        <a href="tel:+{{ $footer->phone }}"
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">
+                                            {{ $footer->phone }}
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div><!--end col-->
-                    </div><!--end grid-->
+                            </div><!--end col-->
+                        </div><!--end grid-->
                 </div>
                 <!-- Subscribe -->
             </div>
@@ -138,24 +141,24 @@
                 <div class="md:text-left text-center">
                     <p class="mb-0 text-gray-300">©
                         <script>document.write(new Date().getFullYear())</script>
-                        Hously. Develop <i class="mdi mdi-heart text-red-600"></i> By <a
-                            href="http://roshannafiz.com/" target="_blank" class="text-reset">Roshan Nafiz</a>.
+                        Hously. Develop
+                        <i class="mdi mdi-heart text-red-600"></i>
+                        By
+                        <a href="http://roshannafiz.com/" target="_blank" class="text-reset">
+                            {{ $footer->develop_by }}
+                        </a>
                     </p>
                 </div>
-
+                @endforeach
                 <ul class="list-none md:text-right text-center">
-                    <li class="inline"><a href="#"
-                                          class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600"><i
-                                data-feather="facebook" class="h-4 w-4"></i></a></li>
-                    <li class="inline"><a href="#"
-                                          class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600"><i
-                                data-feather="instagram" class="h-4 w-4"></i></a></li>
-                    <li class="inline"><a href="#"
-                                          class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600"><i
-                                data-feather="twitter" class="h-4 w-4"></i></a></li>
-                    <li class="inline"><a href="#"
-                                          class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600"><i
-                                data-feather="linkedin" class="h-4 w-4"></i></a></li>
+                    @foreach($display_socials as $social)
+                        <li class="inline">
+                            <a href="{{ $social->icon_link }}" target="_blank"
+                               class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600">
+                                {!! $social->icon_code !!}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul><!--end icon-->
             </div><!--end grid-->
         </div><!--end container-->

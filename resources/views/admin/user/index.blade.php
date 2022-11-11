@@ -91,7 +91,7 @@
                                                         {{ $user->phone }}
                                                     </td>
                                                     <td>
-                                                        <img style="width: 80px; height: 50px"
+                                                        <img style="width: 80px; height: 80px"
                                                              src="{{ asset('admin/images/upload-user/' . $user->image) }}"
                                                              alt="">
                                                     </td>

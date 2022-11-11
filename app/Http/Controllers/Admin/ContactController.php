@@ -23,12 +23,15 @@ class ContactController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'icon_code' => 'required',
             'description' => 'required',
         ]);
         $contact = new Contact();
         $contact->name = $request->name;
+        $contact->icon_code = $request->icon_code;
         $contact->phone = $request->phone;
         $contact->email = $request->email;
+        $contact->address = $request->address;
         $contact->description = $request->description;
         $contact->save();
         return redirect()->back()->with('create_message', "Contact Created Successfully");
@@ -44,12 +47,15 @@ class ContactController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'icon_code' => 'required',
             'description' => 'required',
         ]);
         $contact = Contact::find($id);
         $contact->name = $request->name;
+        $contact->icon_code = $request->icon_code;
         $contact->phone = $request->phone;
         $contact->email = $request->email;
+        $contact->address = $request->address;
         $contact->description = $request->description;
         $contact->update();
         return redirect('/contacts')->with('update_message', "Contact Updated Successfully");

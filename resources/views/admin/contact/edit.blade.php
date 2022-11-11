@@ -45,6 +45,21 @@
                                     </div>
 
                                     <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Icon Code</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" name="icon_code" value="{{ $contact->icon_code }}"
+                                                   placeholder="Icon Code"
+                                                   class="form-control">
+                                            <p style="font-size: 14px; color: gray">( mdi mdi Icon Required )</p>
+                                            <div class="error-message">
+                                                @error('icon_code')
+                                                <span>! {{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Phone</label>
                                         <div class="col-lg-9">
                                             <input type="text" name="phone" value="{{ $contact->phone }}"
@@ -66,6 +81,19 @@
                                                    class="form-control">
                                             <div class="error-message">
                                                 @error('email')
+                                                <span>! {{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Address</label>
+                                        <div class="col-lg-9">
+                                            <textarea name="address" rows="2" class="form-control"
+                                                      placeholder="Address">{{ $contact->address }}</textarea>
+                                            <div class="error-message">
+                                                @error('address')
                                                 <span>! {{ $message }}</span>
                                                 @enderror
                                             </div>

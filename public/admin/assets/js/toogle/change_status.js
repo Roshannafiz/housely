@@ -236,4 +236,23 @@
         });
     });
     /*======== 11. END CHANGE HOW-TO-WORK STATUS ========*/
+    /*======== 12. START CHANGE FOOTER STATUS ========*/
+    $(".toggle-class-footer").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var footer_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/footer-status",
+            data: {
+                status: status,
+                footer_id: footer_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 12. END CHANGE FOOTER STATUS ========*/
 })(jQuery);

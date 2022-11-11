@@ -96,12 +96,12 @@
                                                                type="checkbox" data-onstyle="success"
                                                                data-offstyle="danger"
                                                                data-toggle="toggle-house" data-on="Active"
-                                                               data-off="Inactivee" {{ $house->status ? 'checked' : '' }}>
+                                                               data-off="Inactive" {{ $house->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td>
                                                         <input data-id="{{ $house->id }}" class="toggle-class-house-feature"
-                                                               type="checkbox" data-onstyle="dark"
-                                                               data-offstyle="danger"
+                                                               type="checkbox" data-onstyle="danger"
+                                                               data-offstyle="dark"
                                                                data-toggle="toggle-house-feature" data-on="Yes"
                                                                data-off="No" {{ $house->it_feature ? 'checked' : '' }}>
                                                     </td>

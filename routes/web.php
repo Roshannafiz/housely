@@ -168,6 +168,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/contact-status', [\App\Http\Controllers\Admin\ContactController::class, 'change_status'])->name('contact-status');
     Route::get('/contact-delete/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy']);
 
+    // Footer Route
+    Route::get('/footers', [\App\Http\Controllers\Admin\FooterController::class, 'index']);
+    Route::get('/footer-create', [\App\Http\Controllers\Admin\FooterController::class, 'footer_create']);
+    Route::post('/footer-store', [\App\Http\Controllers\Admin\FooterController::class, 'footer_store']);
+    Route::get('/footer-edit/{id}', [\App\Http\Controllers\Admin\FooterController::class, 'footer_edit']);
+    Route::put('/footer-update/{id}', [\App\Http\Controllers\Admin\FooterController::class, 'footer_update']);
+    Route::get('/footer-view/{id}', [\App\Http\Controllers\Admin\FooterController::class, 'footer_view']);
+    Route::get('/footer-status', [\App\Http\Controllers\Admin\FooterController::class, 'change_status'])->name('footer-status');
+    Route::get('/footer-delete/{id}', [\App\Http\Controllers\Admin\FooterController::class, 'destroy']);
+
     // Category Route
     Route::get('/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
     Route::get('/category-create', [\App\Http\Controllers\Admin\CategoryController::class, 'category_create']);

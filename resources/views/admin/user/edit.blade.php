@@ -101,22 +101,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Password</label>
-                                        <div class="col-lg-9">
-                                            <input type="password" class="form-control" placeholder="Password"
-                                                   name="password">
-                                            <div class="error-message">
-                                                @error('password')
-                                                <span>! {{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <p style="font-size: 14px">( Password Must Be 8 Character Or Long )</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-5">
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Address</label>
                                         <div class="col-lg-9">
@@ -130,10 +114,12 @@
                                         </div>
                                     </div>
 
+                                </div>
+                                <div class="col-xl-5">
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Image</label>
                                         <div class="col-lg-9">
-                                            <img style="width: 80px; height: 50px" class="mb-3"
+                                            <img style="width: 90px; height: 90px" class="mb-3"
                                                  src="{{ asset('admin/images/upload-user/' . $user->image) }}"
                                                  alt="User Image">
                                             <input type="file" name="image" class="form-control dropify">

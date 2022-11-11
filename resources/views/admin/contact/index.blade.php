@@ -57,6 +57,11 @@
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
+                                                    aria-label="Icon Code: activate to sort column ascending"
+                                                    style="width: 100px;">Icon Code
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
                                                     aria-label="Description: activate to sort column ascending"
                                                     style="width: 200px;">Description
                                                 </th>
@@ -88,6 +93,9 @@
                                                     </td>
                                                     <td>
                                                         {{ $contact->email }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $contact->icon_code }}
                                                     </td>
                                                     <td>
                                                         {!! $contact->description  !!}

@@ -29,119 +29,27 @@
 <section class="relative lg:py-24 py-16">
     <div class="container">
         <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-[30px] gap-y-[50px]">
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
-                    <div
-                        class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="mdi mdi-cards-heart"></i>
+            @foreach($features as $feature)
+                <div
+                    class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
+                    <div class="relative overflow-hidden text-transparent -m-3">
+                        <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
+                        <div
+                            class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
+                            {!! $feature->icon_code !!}
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <a href="#" class="text-xl hover:text-green-600 font-medium">
+                            {{ $feature->title }}
+                        </a>
+                        <p class="text-slate-400 mt-3">
+                            {{ $feature->description }}
+                        </p>
                     </div>
                 </div>
-
-                <div class="mt-6">
-                    <a href="#" class="text-xl hover:text-green-600 font-medium">Comfortable</a>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
-                    <div
-                        class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="mdi mdi-shield-sun"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <a href="#" class="text-xl hover:text-green-600 font-medium">Extra Security</a>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
-                    <div
-                        class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="mdi mdi-star"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <a href="#" class="text-xl hover:text-green-600 font-medium">Luxury</a>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
-                    <div
-                        class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="mdi mdi-currency-usd"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <a href="#" class="text-xl hover:text-green-600 font-medium">Best Price</a>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
-                    <div
-                        class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="mdi mdi-map-marker"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <a href="#" class="text-xl hover:text-green-600 font-medium">Stratagic Location</a>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5"></i>
-                    <div
-                        class="absolute top-[50%] -translate-y-[50%] left-[45px] text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="mdi mdi-chart-arc"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <a href="#" class="text-xl hover:text-green-600 font-medium">Efficient</a>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
+            @endforeach
         </div><!--end grid-->
     </div><!--end container-->
 

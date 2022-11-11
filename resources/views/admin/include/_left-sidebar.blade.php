@@ -343,6 +343,32 @@
                         </li>
                     </ul>
                 </li>
+
+                <!-- Footer -->
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ request()->is('footer-edit/*') || request()->is('footer-view/*') || request()->is('footers') || request()->is('footer-create')  ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-pager"></i>
+                        <span> Footer </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ request()->is('footer-edit/*') || request()->is('footer-view/*') || request()->is('footers') || request()->is('footer-create')  ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/footers') }}"
+                               class="{{ 'footers' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Footer
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/footer-create') }}"
+                               class="{{ 'footer-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

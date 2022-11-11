@@ -6,7 +6,8 @@
 @include('frontend.include._navbar')
 
 <!-- Start Hero -->
-<section class="relative table w-full py-32 lg:py-36 bg-[url('frontend/assets/images/bg/01.jpg')] bg-no-repeat bg-center">
+<section
+    class="relative table w-full py-32 lg:py-36 bg-[url('frontend/assets/images/bg/01.jpg')] bg-no-repeat bg-center">
     <div class="absolute inset-0 bg-black opacity-80"></div>
     <div class="container">
         <div class="grid grid-cols-1 text-center mt-10">
@@ -67,62 +68,27 @@
         </div><!--end grid-->
 
         <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden text-center">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5 mx-auto"></i>
-                    <div
-                        class="absolute top-2/4 -translate-y-2/4 left-0 right-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="uil uil-estate"></i>
+            @foreach($how_works as $how_work)
+                <div
+                    class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden text-center">
+                    <div class="relative overflow-hidden text-transparent -m-3">
+                        <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5 mx-auto"></i>
+                        <div
+                            class="absolute top-2/4 -translate-y-2/4 left-0 right-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
+                            {!! $how_work->icon_code !!}
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <h5 class="text-xl font-medium">
+                            {{ $how_work->title }}
+                        </h5>
+                        <p class="text-slate-400 mt-3">
+                            {{ $how_work->description }}
+                        </p>
                     </div>
                 </div>
-
-                <div class="mt-6">
-                    <h5 class="text-xl font-medium">Evaluate Property</h5>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden text-center">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5 mx-auto"></i>
-                    <div
-                        class="absolute top-2/4 -translate-y-2/4 left-0 right-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="uil uil-bag"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <h5 class="text-xl font-medium">Meeting with Agent</h5>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
-
-            <!-- Content -->
-            <div
-                class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-white dark:bg-slate-900 overflow-hidden text-center">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-32 w-32 fill-green-600/5 mx-auto"></i>
-                    <div
-                        class="absolute top-2/4 -translate-y-2/4 left-0 right-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="uil uil-key-skeleton"></i>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <h5 class="text-xl font-medium">Close the Deal</h5>
-                    <p class="text-slate-400 mt-3">If the distribution of letters and 'words' is random, the reader will
-                        not be distracted from making.</p>
-                </div>
-            </div>
-            <!-- Content -->
+            @endforeach
         </div><!--end grid-->
     </div><!--end container-->
 </section><!--end section-->
@@ -177,121 +143,50 @@
         </div><!--end grid-->
 
         <div class="grid md:grid-cols-12 grid-cols-1 mt-8 gap-[30px]">
-            <div class="lg:col-span-3 md:col-span-6">
-                <div class="group text-center">
-                    <div class="relative inline-block mx-auto h-52 w-52 rounded-full overflow-hidden">
-                        <img src="{{ asset('frontend/assets/images/client/04.jpg') }}" class="" alt="">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-black h-52 w-52 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></div>
+            @foreach($agents as $agent)
+                <div class="lg:col-span-3 md:col-span-6">
+                    <div class="group text-center">
+                        <div class="relative inline-block mx-auto h-52 w-52 rounded-full overflow-hidden">
+                            <img src="{{ asset('admin/images/upload-agent/' . $agent->image) }}" class="" alt="">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-b from-transparent to-black h-52 w-52 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></div>
 
-                        <ul class="list-none absolute right-0 left-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="facebook" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="instagram" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="linkedin" class="h-4 w-4"></i></a></li>
-                        </ul><!--end icon-->
-                    </div>
+                            <ul class="list-none absolute right-0 left-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
+                                <li class="inline">
+                                    <a href="{{ $agent->facebook_link }}"
+                                       class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white">
+                                        <i data-feather="facebook" class="h-4 w-4"></i>
+                                    </a>
+                                </li>
 
-                    <div class="content mt-3">
-                        <a href="#"
-                           class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">Jack
-                            John</a>
-                        <p class="text-slate-400">Designer</p>
-                    </div>
-                </div>
-            </div>
+                                <li class="inline">
+                                    <a href="{{ $agent->instagram_link }}"
+                                       class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white">
+                                        <i data-feather="instagram" class="h-4 w-4"></i>
+                                    </a>
+                                </li>
 
-            <div class="lg:col-span-3 md:col-span-6">
-                <div class="group text-center">
-                    <div class="relative inline-block mx-auto h-52 w-52 rounded-full overflow-hidden">
-                        <img src="{{ asset('frontend/assets/images/client/05.jpg') }}" class="" alt="">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-black h-52 w-52 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></div>
+                                <li class="inline">
+                                    <a href="{{ $agent->linkedin_link }}"
+                                       class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white">
+                                        <i data-feather="linkedin" class="h-4 w-4"></i>
+                                    </a>
+                                </li>
+                            </ul><!--end icon-->
+                        </div>
 
-                        <ul class="list-none absolute right-0 left-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="facebook" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="instagram" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="linkedin" class="h-4 w-4"></i></a></li>
-                        </ul><!--end icon-->
-                    </div>
-
-                    <div class="content mt-3">
-                        <a href="#"
-                           class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">Krista
-                            John</a>
-                        <p class="text-slate-400">Designer</p>
+                        <div class="content mt-3">
+                            <a href="#"
+                               class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">
+                                {{ $agent->name }}
+                            </a>
+                            <p class="text-slate-400">
+                                {{ $agent->speciality }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="lg:col-span-3 md:col-span-6">
-                <div class="group text-center">
-                    <div class="relative inline-block mx-auto h-52 w-52 rounded-full overflow-hidden">
-                        <img src="{{ asset('frontend/assets/images/client/06.jpg') }}" class="" alt="">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-black h-52 w-52 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></div>
-
-                        <ul class="list-none absolute right-0 left-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="facebook" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="instagram" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="linkedin" class="h-4 w-4"></i></a></li>
-                        </ul><!--end icon-->
-                    </div>
-
-                    <div class="content mt-3">
-                        <a href="#"
-                           class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">Roger
-                            Jackson</a>
-                        <p class="text-slate-400">Designer</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-3 md:col-span-6">
-                <div class="group text-center">
-                    <div class="relative inline-block mx-auto h-52 w-52 rounded-full overflow-hidden">
-                        <img src="{{ asset('frontend/assets/images/client/07.jpg') }}" class="" alt="">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-black h-52 w-52 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></div>
-
-                        <ul class="list-none absolute right-0 left-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="facebook" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="instagram" class="h-4 w-4"></i></a></li>
-                            <li class="inline"><a href="#"
-                                                  class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
-                                        data-feather="linkedin" class="h-4 w-4"></i></a></li>
-                        </ul><!--end icon-->
-                    </div>
-
-                    <div class="content mt-3">
-                        <a href="#"
-                           class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">Johnny
-                            English</a>
-                        <p class="text-slate-400">Designer</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div><!--end grid-->
     </div><!--end container-->
 

@@ -31,7 +31,8 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Name</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="name" value="{{ old('name') }}" placeholder="Name" class="form-control">
+                                            <input type="text" name="name" value="{{ old('name') }}" placeholder="Name"
+                                                   class="form-control" autocomplete="off">
                                             <div class="error-message">
                                                 @error('name')
                                                 <span>! {{ $message }}</span>
@@ -43,7 +44,11 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Link</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="link" value="{{ old('link') }}" placeholder="Link" class="form-control">
+                                            <input type="text" name="link" value="{{ old('link') }}" placeholder="Link"
+                                                   class="form-control" autocomplete="off">
+                                            <p style="font-size: 14px">
+                                                ( Link Must Be Page Name )
+                                            </p>
                                             <div class="error-message">
                                                 @error('link')
                                                 <span>! {{ $message }}</span>
