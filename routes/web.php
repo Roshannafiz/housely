@@ -20,6 +20,8 @@ Route::get('/faqs', [\App\Http\Controllers\Frontend\FaqController::class, 'index
 Route::get('/terms', [\App\Http\Controllers\Frontend\TermsController::class, 'index']);
 Route::get('/privacy', [\App\Http\Controllers\Frontend\PrivacyController::class, 'index']);
 Route::get('/contact-us', [\App\Http\Controllers\Frontend\ContactController::class, 'index']);
+Route::get('/my-profile', [\App\Http\Controllers\Frontend\ProfileController::class, 'index']);
+Route::post('/profile-update/{id}', [\App\Http\Controllers\Frontend\ProfileController::class, 'profile_update']);
 // House Details Route
 Route::get('house-details/{id}', [\App\Http\Controllers\Frontend\HouseDetailsController::class, 'house_detail']);
 

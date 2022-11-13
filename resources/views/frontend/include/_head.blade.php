@@ -13,10 +13,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}"/>
+    <!-- Jquery CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <!-- Font Awesome 6 --->
     <link rel="stylesheet" href="{{ asset('frontend/assets/font-awesome-6/fontawesome.min.css') }}">
     <!---- Bootstrap 4 Cdn ---->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <!-- Css -->
     <link href="{{ asset('frontend/assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/libs/tobii/css/tobii.min.css') }}" rel="stylesheet">
