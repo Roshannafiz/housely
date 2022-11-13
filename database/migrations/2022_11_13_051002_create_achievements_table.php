@@ -12,12 +12,11 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('subnavbars', function (Blueprint $table) {
+        Schema::create('achievements', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('navbar_id');
-            $table->foreign('navbar_id')->references('id')->on('navbars')->cascadeOnDelete();
-            $table->string('sub_navbar_name')->nullable();
-            $table->text('sub_navbar_link')->nullable();
+            $table->string('name');
+            $table->integer('how_much');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('subnavbars');
+        Schema::dropIfExists('achievements');
     }
 };

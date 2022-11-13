@@ -9,6 +9,10 @@
     border-color: #e5e7eb
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .nav {
     display: block;
 }
@@ -1762,7 +1766,7 @@ p {
     top: 0;
     z-index: 999;
     border-width: 0;
-    background-color: transparent;
+    background-color: white;
     -webkit-transition-property: all;
     transition-property: all;
     -webkit-transition-duration: .5s;
@@ -2438,7 +2442,7 @@ p {
         margin-right: 10px
     }
 
-    #topnav .navigation-menu.nav-light > li > a {
+    #topnav .navigation-menu.nav-light>li>a {
         color: rgb(255 255 255 / .5)
     }
 

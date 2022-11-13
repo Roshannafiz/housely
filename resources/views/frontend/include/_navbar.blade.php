@@ -1,12 +1,12 @@
 <!-- Start Navbar -->
-<nav id="topnav" class="defaultscroll is-sticky">
+<nav id="topnav" class="defaultscroll is-sticky nav-sticky">
     <div class="container">
         <!-- Start Logo container-->
         <a class="logo" href="{{ url('/') }}">
                     <span class="inline-block dark:hidden">
                         <img src="{{ asset('frontend/assets/images/logo-dark.png') }}" class="l-dark" height="24"
                              alt="">
-                        <img src="{{ asset('frontend/assets/images/logo-light.png') }}" class="l-light" height="24"
+                        <img src="{{ asset('frontend/assets/images/logo-dark.png') }}" class="l-light" height="24"
                              alt="">
                     </span>
             <img src="{{ asset('frontend/assets/images/logo-light.png') }}" height="24" class="hidden dark:inline-block"
@@ -59,33 +59,52 @@
 
         <div id="navigation">
             <!-- Navigation Menu-->
-            <ul class="navigation-menu justify-end nav-light">
-                @foreach($display_navbars as $item => $navbar)
-                    @if(count($navbar->sub_navbars) > 0)
-                        <li class="has-submenu parent-parent-menu-item">
-                            <a href="javascript:void(0)">{{ $navbar->name }}</a>
-                            <span class="menu-arrow"></span>
+            <ul class="navigation-menu justify-end">
+                <li class="has-submenu parent-menu-item {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('/') }}">Home</a>
+                </li>
+
+                <li class="{{ request()->is('buy') ? 'active' : '' }}">
+                    <a href="{{ url('/buy') }}" class="sub-menu-item">Buy</a>
+                </li>
+
+                <li class="{{ request()->is('about-us') ? 'active' : '' }}">
+                    <a href="{{ url('/about-us') }}" class="sub-menu-item">About Us</a>
+                </li>
+
+                <li class="has-submenu parent-parent-menu-item {{ request()->is('feature') || request()->is('faqs') || request()->is('terms') || request()->is('privacy') ? 'active' : '' }}">
+                    <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li class="{{ request()->is('feature') ? 'active' : '' }}">
+                            <a href="{{ url('/feature') }}" class="sub-menu-item">Features</a>
+                        </li>
+
+                        <li class="{{ request()->is('faqs') ? 'active' : '' }}">
+                            <a href="{{ url('/faqs') }}" class="sub-menu-item">Faqs</a>
+                        </li>
+
+                        <li class="has-submenu parent-menu-item {{ request()->is('terms') || request()->is('privacy') ? 'active' : '' }}">
+                            <a href="javascript:void(0)"> Utility </a><span
+                                class="submenu-arrow"></span>
                             <ul class="submenu">
-                                @foreach($navbar->sub_navbars as $sub_navbar)
-                                    <li>
-                                        <a href="{{ $sub_navbar->sub_navbar_link }}" class="sub-menu-item">
-                                            {{ $sub_navbar->sub_navbar_name }}
-                                        </a>
-                                    </li>
-                                @endforeach
+                                <li class="{{ request()->is('terms') ? 'active' : '' }}">
+                                    <a href="{{ url('/terms') }}" class="sub-menu-item">Terms of Services</a>
+                                </li>
+
+                                <li class="{{ request()->is('privacy') ? 'active' : '' }}">
+                                    <a href="{{ url('/privacy') }}" class="sub-menu-item">Privacy Policy</a>
+                                </li>
                             </ul>
                         </li>
-                    @else
-                        <li class="has-submenu parent-menu-item {{ $item + 1  == $navbar->id ? 'active' : '' }}">
-                            <a href="{{ $navbar->link }}">
-                                {{ $navbar->name }}
-                            </a>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
-            <!--end navigation menu-->
-        </div><!--end navigation-->
+                    </ul>
+                </li>
+
+                <li class="{{ request()->is('contact-us') ? 'active' : '' }}">
+                    <a href="{{ url('/contact-us') }}" class="sub-menu-item">Contact</a>
+                </li>
+            </ul><!--end navigation menu-->
+        </div>
+        <!--end navigation-->
     </div><!--end container-->
 </nav><!--end header-->
 <!-- End Navbar -->

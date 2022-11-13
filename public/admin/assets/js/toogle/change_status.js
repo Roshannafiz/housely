@@ -255,4 +255,42 @@
         });
     });
     /*======== 12. END CHANGE FOOTER STATUS ========*/
+    /*======== 13. START CHANGE PRIVACY STATUS ========*/
+    $(".toggle-class-privacy").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var privacy_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/privacy-status",
+            data: {
+                status: status,
+                privacy_id: privacy_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 13. END CHANGE PRIVACY STATUS ========*/
+    /*======== 14. START CHANGE ACHIEVEMENT STATUS ========*/
+    $(".toggle-class-achievement").change(function () {
+        var status = $(this).prop("checked") == true ? 1 : 0;
+        var achievement_id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/achievement-status",
+            data: {
+                status: status,
+                achievement_id: achievement_id,
+            },
+            success: function (data) {
+                console.log("Success");
+            },
+        });
+    });
+    /*======== 14. END CHANGE ACHIEVEMENT STATUS ========*/
 })(jQuery);

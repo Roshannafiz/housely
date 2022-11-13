@@ -12,10 +12,10 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('navbars', function (Blueprint $table) {
+        Schema::create('privacies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('link');
+            $table->text('overview');
+            $table->text('information');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('navbars');
+        Schema::dropIfExists('privacies');
     }
 };

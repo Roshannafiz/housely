@@ -7,7 +7,7 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-12 mt-5">
-                                <h3 class="page-title mt-3">Sub-Navbar Create</h3>
+                                <h3 class="page-title mt-3">Achievement Update</h3>
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item active">Have A Nice Day!</li>
                                 </ul>
@@ -15,32 +15,28 @@
 
                             <div class="col-sm-12">
                                 <div class="text-right">
-                                    <a href="{{ url('/subnavbars') }}" type="submit" class="btn btn-primary">
+                                    <a href="{{ url('/achievements') }}" type="submit" class="btn btn-primary">
                                         <i class="fa fa-arrow-left"></i>
-                                        Go Sub-Navbar
+                                        Go Achievement
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('subnavbar-store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('achievement-update/' . $achievement->id) }}" method="POST"
+                              enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-xl-6">
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Navbar</label>
+                                        <label class="col-lg-3 col-form-label">Name</label>
                                         <div class="col-lg-9">
-                                            <select name="navbar_id" class="form-control">
-                                                <option value="">Select Navbar</option>
-                                                @foreach($navbars as $navbar)
-                                                    <option value="{{ $navbar->id }}">
-                                                        {{ $navbar->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" name="name" value="{{ $achievement->name }}"
+                                                   class="form-control" placeholder="Name">
                                             <div class="error-message">
-                                                @error('navbar_id')
+                                                @error('name')
                                                 <span>! {{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -48,23 +44,12 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Sub Navbar</label>
+                                        <label class="col-lg-3 col-form-label">How Much</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="sub_navbar_name" value="{{ old('sub_navbar_name') }}" placeholder="Name" class="form-control">
+                                            <input type="number" name="how_much" value="{{ $achievement->how_much }}"
+                                                   class="form-control" placeholder="How Much">
                                             <div class="error-message">
-                                                @error('sub_navbar_name')
-                                                <span>! {{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Link</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="sub_navbar_link" value="{{ old('sub_navbar_link') }}" placeholder="Link" class="form-control">
-                                            <div class="error-message">
-                                                @error('sub_navbar_link')
+                                                @error('how_much')
                                                 <span>! {{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -72,7 +57,7 @@
                                     </div>
 
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-primary">Create</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </div>
@@ -81,6 +66,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Sub-Navbar</h3>
+                    <h3 class="page-title mt-3">Our Privacy</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,7 +12,7 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/subnavbar-create') }}" class="btn btn-primary">
+                        <a href="{{ url('/privacy-create') }}" class="btn btn-primary">
                             Create
                             <i class="fa fa-plus"></i>
                         </a>
@@ -42,47 +42,50 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="( Navbar ): activate to sort column descending"
-                                                    style="width: 250px;">( Navbar )
-                                                </th>
-                                                <th class="sorting sorting_asc" tabindex="0"
-                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                    aria-sort="ascending"
-                                                    aria-label="Sub-Navbar: activate to sort column descending"
-                                                    style="width: 200px;">Sub-Navbar
+                                                    aria-label="Overview: activate to sort column descending"
+                                                    style="width: 300px;">Overview
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
-                                                    aria-label="Link: activate to sort column ascending"
-                                                    style="width:200px;">Link
+                                                    aria-label="Information: activate to sort column ascending"
+                                                    style="width: 300px;">Information
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Status: activate to sort column ascending"
+                                                    style="width: 100px;">Status
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 80px;">Action
+                                                    style="width: 90px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($subnavbars as $key => $subnavbar)
+                                            @foreach($privacys as $key => $privacy)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
                                                             {{ $key+1 }}
                                                         </span>
                                                     </td>
-                                                    <td>
-                                                        {{ $subnavbar->navbar_name }}
-                                                    </td>
                                                     <td class="sorting_1">
-                                                        {{ $subnavbar->sub_navbar_name }}
+                                                        {!! $privacy->overview !!}
                                                     </td>
                                                     <td>
-                                                        {{ $subnavbar->sub_navbar_link }}
+                                                        {!! $privacy->information !!}
+                                                    </td>
+                                                    <td>
+                                                        <input data-id="{{ $privacy->id }}" class="toggle-class-privacy"
+                                                               type="checkbox" data-onstyle="success"
+                                                               data-offstyle="danger"
+                                                               data-toggle="toggle-privacy" data-on="Active"
+                                                               data-off="Inactive" {{ $privacy->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('subnavbar-edit/' . $subnavbar->id) }}">
+                                                            <a href="{{ url('privacy-edit/' . $privacy->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
@@ -90,7 +93,7 @@
                                                         </div>
 
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/subnavbar-delete/' . $subnavbar->id) }}">
+                                                            <a href="{{ url('/privacy-delete/' . $privacy->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>
@@ -103,7 +106,6 @@
                                         </table>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

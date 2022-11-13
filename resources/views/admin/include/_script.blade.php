@@ -20,6 +20,10 @@
 <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('admin/assets/js/datatable.js') }}"></script>
 
+<!--------- Summernote Bootstrap 4 --------->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 <!--------- Toaster Message ------->
 <script src="{{ asset('admin/assets/toaster/js/jquery.toast.js') }}"></script>
 
@@ -66,4 +70,30 @@
 </script>
 }
 @endif
+
+<!-- Summernote -->
+<script>
+    $('#summernote_house').summernote({
+        placeholder: 'Description',
+        tabsize: 2,
+        height: 150
+    });
+</script>
+
+<script>
+    $('#summernote_overview').summernote({
+        placeholder: 'Overview',
+        tabsize: 2,
+        height: 150
+    });
+</script>
+
+<script>
+    $('#summernote_information').summernote({
+        placeholder: 'Information',
+        tabsize: 2,
+        height: 150
+    });
+</script>
 </html>
+

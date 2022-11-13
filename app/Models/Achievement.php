@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subnavbar extends Model
+class Achievement extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'navbar_id',
-        'sub_navbar_name',
-        'sub_navbar_link',
+        'name',
+        'how_much',
+        'status',
     ];
 }

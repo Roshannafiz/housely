@@ -79,7 +79,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Description</label>
                                         <div class="col-lg-9">
-                                            <textarea name="house_description" class="form-control" rows="5"
+                                            <textarea id="summernote_house" name="house_description" class="form-control"
                                                       placeholder="Description">{{ old('house_description') }}</textarea>
                                             <div class="error-message">
                                                 @error('house_description')

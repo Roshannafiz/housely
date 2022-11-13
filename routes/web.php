@@ -20,7 +20,8 @@ Route::get('/faqs', [\App\Http\Controllers\Frontend\FaqController::class, 'index
 Route::get('/terms', [\App\Http\Controllers\Frontend\TermsController::class, 'index']);
 Route::get('/privacy', [\App\Http\Controllers\Frontend\PrivacyController::class, 'index']);
 Route::get('/contact-us', [\App\Http\Controllers\Frontend\ContactController::class, 'index']);
-
+// House Details Route
+Route::get('house-details/{id}', [\App\Http\Controllers\Frontend\HouseDetailsController::class, 'house_detail']);
 
 /*
 |--------------------------------------------------------------------------
@@ -88,23 +89,6 @@ Route::post('/reset-password', function (Request $request) {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('dashboard');
 
-    // Nav-bar Route
-    Route::get('/navbars', [\App\Http\Controllers\Admin\NavbarController::class, 'index']);
-    Route::get('/navbar-create', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_create']);
-    Route::post('/navbar-store', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_store']);
-    Route::get('/navbar-edit/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_edit']);
-    Route::put('/navbar-update/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'navbar_update']);
-    Route::get('/navbar-status', [\App\Http\Controllers\Admin\NavbarController::class, 'change_status'])->name('navbar-status');
-    Route::get('/navbar-delete/{id}', [\App\Http\Controllers\Admin\NavbarController::class, 'destroy']);
-
-    // Sub-Nav-bar Route
-    Route::get('/subnavbars', [\App\Http\Controllers\Admin\SubnavbarController::class, 'index']);
-    Route::get('/subnavbar-create', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_create']);
-    Route::post('/subnavbar-store', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_store']);
-    Route::get('/subnavbar-edit/{id}', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_edit']);
-    Route::put('/subnavbar-update/{id}', [\App\Http\Controllers\Admin\SubnavbarController::class, 'sub_navbar_update']);
-    Route::get('/subnavbar-delete/{id}', [\App\Http\Controllers\Admin\SubnavbarController::class, 'destroy']);
-
     // Banner Route
     Route::get('/banners', [\App\Http\Controllers\Admin\BannerController::class, 'index']);
     Route::get('/banner-create', [\App\Http\Controllers\Admin\BannerController::class, 'banner_create']);
@@ -167,6 +151,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/contact-update/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'contact_update']);
     Route::get('/contact-status', [\App\Http\Controllers\Admin\ContactController::class, 'change_status'])->name('contact-status');
     Route::get('/contact-delete/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy']);
+
+    // Achievement Route
+    Route::get('/achievements', [\App\Http\Controllers\Admin\AchievementController::class, 'index']);
+    Route::get('/achievement-create', [\App\Http\Controllers\Admin\AchievementController::class, 'achievement_create']);
+    Route::post('/achievement-store', [\App\Http\Controllers\Admin\AchievementController::class, 'achievement_store']);
+    Route::get('/achievement-edit/{id}', [\App\Http\Controllers\Admin\AchievementController::class, 'achievement_edit']);
+    Route::put('/achievement-update/{id}', [\App\Http\Controllers\Admin\AchievementController::class, 'achievement_update']);
+    Route::get('/achievement-status', [\App\Http\Controllers\Admin\AchievementController::class, 'change_status'])->name('achievement-status');
+    Route::get('/achievement-delete/{id}', [\App\Http\Controllers\Admin\AchievementController::class, 'destroy']);
+
+    // Privacy Route
+    Route::get('/privacys', [\App\Http\Controllers\Admin\PrivacyController::class, 'index']);
+    Route::get('/privacy-create', [\App\Http\Controllers\Admin\PrivacyController::class, 'privacy_create']);
+    Route::post('/privacy-store', [\App\Http\Controllers\Admin\PrivacyController::class, 'privacy_store']);
+    Route::get('/privacy-edit/{id}', [\App\Http\Controllers\Admin\PrivacyController::class, 'privacy_edit']);
+    Route::put('/privacy-update/{id}', [\App\Http\Controllers\Admin\PrivacyController::class, 'privacy_update']);
+    Route::get('/privacy-status', [\App\Http\Controllers\Admin\PrivacyController::class, 'change_status'])->name('privacy-status');
+    Route::get('/privacy-delete/{id}', [\App\Http\Controllers\Admin\PrivacyController::class, 'destroy']);
 
     // Footer Route
     Route::get('/footers', [\App\Http\Controllers\Admin\FooterController::class, 'index']);

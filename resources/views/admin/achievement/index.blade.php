@@ -4,7 +4,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Navbar</h3>
+                    <h3 class="page-title mt-3">Our Achievement</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
@@ -12,7 +12,7 @@
 
                 <div class="col-sm-12">
                     <div class="text-right">
-                        <a href="{{ url('/navbar-create') }}" class="btn btn-primary">
+                        <a href="{{ url('/achievement-create') }}" class="btn btn-primary">
                             Create
                             <i class="fa fa-plus"></i>
                         </a>
@@ -42,13 +42,13 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="Navbar: activate to sort column descending"
-                                                    style="width: 200px;">Navbar
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 400px;">Name
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
-                                                    aria-label="Link: activate to sort column ascending"
-                                                    style="width: 200px;">Link
+                                                    aria-label="How Much: activate to sort column ascending"
+                                                    style="width: 300px;">How Much
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -58,12 +58,12 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 60px;">Action
+                                                    style="width: 90px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($navbars as $key => $navbar)
+                                            @foreach($achievements as $key => $achievement)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
@@ -71,21 +71,22 @@
                                                         </span>
                                                     </td>
                                                     <td class="sorting_1">
-                                                        {{ $navbar->name }}
+                                                        {{ $achievement->name }}
                                                     </td>
                                                     <td>
-                                                        {{ $navbar->link }}
+                                                        {{ $achievement->how_much }}
                                                     </td>
                                                     <td>
-                                                        <input data-id="{{ $navbar->id }}" class="toggle-class-navbar"
+                                                        <input data-id="{{ $achievement->id }}"
+                                                               class="toggle-class-achievement"
                                                                type="checkbox" data-onstyle="success"
                                                                data-offstyle="danger"
-                                                               data-toggle="toggle-navbar" data-on="Active"
-                                                               data-off="Inactive" {{ $navbar->status ? 'checked' : '' }}>
+                                                               data-toggle="toggle-achievement" data-on="Active"
+                                                               data-off="Inactive" {{ $achievement->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('navbar-edit/' . $navbar->id) }}">
+                                                            <a href="{{ url('achievement-edit/' . $achievement->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
@@ -93,7 +94,7 @@
                                                         </div>
 
                                                         <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/navbar-delete/' . $navbar->id) }}">
+                                                            <a href="{{ url('/achievement-delete/' . $achievement->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>
@@ -106,7 +107,6 @@
                                         </table>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

@@ -15,6 +15,8 @@
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}"/>
     <!-- Font Awesome 6 --->
     <link rel="stylesheet" href="{{ asset('frontend/assets/font-awesome-6/fontawesome.min.css') }}">
+    <!---- Bootstrap 4 Cdn ---->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <!-- Css -->
     <link href="{{ asset('frontend/assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/libs/tobii/css/tobii.min.css') }}" rel="stylesheet">

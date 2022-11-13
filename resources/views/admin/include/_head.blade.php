@@ -22,9 +22,9 @@
           rel="stylesheet">
     <!-------- Datatable ------>
     <link rel="stylesheet" href="{{ asset('admin/assets/css/dataTables.bootstrap4.min.css') }}">
+
     <!---------- Toaster Message ------->
     <link rel="stylesheet" href="{{ asset('admin/assets/toaster/css/jquery.toast.css') }}">
-
 
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
 </head>

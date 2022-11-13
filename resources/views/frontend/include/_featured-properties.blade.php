@@ -25,7 +25,7 @@
 
                         <div class="p-6">
                             <div class="pb-6">
-                                <a href="property-detail.html"
+                                <a href="{{ url('house-details/' . $feature_house->id) }}"
                                    class="text-lg hover:text-green-600 font-medium ease-in-out duration-500">
                                     {{ $feature_house->house_title }}
                                 </a>

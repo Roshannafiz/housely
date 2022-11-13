@@ -109,58 +109,6 @@
                     </ul>
                 </li>
 
-                <!-- Nav-bar -->
-                <li class="submenu">
-                    <a href="#"
-                       class="{{ request()->is('navbar-edit/*') || request()->is('navbars') || request()->is('navbar-create') ? 'menu_active subdrop' : '' }}">
-                        <i class="fa-solid fa-bars"></i>
-                        <span> Navbar </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="submenu_class"
-                        style="{{ request()->is('navbar-edit/*') || request()->is('navbars') || request()->is('navbar-create') ? 'display: block' : '' }}">
-                        <li>
-                            <a href="{{ url('/navbars') }}"
-                               class="{{ 'navbars' == request()->path() ? 'link-active-color' : '' }}">
-                                Our Navbar
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/navbar-create') }}"
-                               class="{{ 'navbar-create' == request()->path() ? 'link-active-color' : '' }}">
-                                Create
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- Sub-Nav-Bar -->
-                <li class="submenu">
-                    <a href="#"
-                       class="{{ request()->is('subnavbar-edit/*') || request()->is('subnavbars') || request()->is('subnavbar-create') ? 'menu_active subdrop' : '' }}">
-                        <i class="fa-solid fa-list"></i>
-                        <span> Sub-Navbar </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="submenu_class"
-                        style="{{ request()->is('subnavbar-edit/*') || request()->is('subnavbars') || request()->is('subnavbar-create') ? 'display: block' : '' }}">
-                        <li>
-                            <a href="{{ url('/subnavbars') }}"
-                               class="{{ 'subnavbars' == request()->path() ? 'link-active-color' : '' }}">
-                                Our Sub-Navbar
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/subnavbar-create') }}"
-                               class="{{ 'subnavbar-create' == request()->path() ? 'link-active-color' : '' }}">
-                                Create
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 <!-- Banner -->
                 <li class="submenu">
                     <a href="#"
@@ -338,6 +286,58 @@
                         <li>
                             <a href="{{ url('/contact-create') }}"
                                class="{{ 'contact-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Achievement -->
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ request()->is('achievement-edit/*') || request()->is('privacys') || request()->is('achievement-create')  ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span> Achievement </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ request()->is('achievement-edit/*') || request()->is('achievement-view/*') || request()->is('achievements') || request()->is('achievement-create')  ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/achievements') }}"
+                               class="{{ 'achievements' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Achievement
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/achievement-create') }}"
+                               class="{{ 'achievement-create' == request()->path() ? 'link-active-color' : '' }}">
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Privacy -->
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ request()->is('privacy-edit/*') || request()->is('privacys') || request()->is('privacy-create')  ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-solid fa-shield"></i>
+                        <span> Privacy </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ request()->is('privacy-edit/*') || request()->is('privacy-view/*') || request()->is('privacys') || request()->is('privacy-create')  ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/privacys') }}"
+                               class="{{ 'privacys' == request()->path() ? 'link-active-color' : '' }}">
+                                Our Privacy
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/privacy-create') }}"
+                               class="{{ 'privacy-create' == request()->path() ? 'link-active-color' : '' }}">
                                 Create
                             </a>
                         </li>
