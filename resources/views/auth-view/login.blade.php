@@ -33,9 +33,9 @@
 
                 <div>
                     @if(session('failed'))
-                        <p style="color: red">{{ session('failed') }}</p>
+                        <p class="py-3" style="color: red">{{ session('failed') }}</p>
                     @elseif(session('status'))
-                        <p style="color: green">{{ session('status') }}</p>
+                        <p class="py-3" style="color: green">{{ session('status') }}</p>
                     @endif
                 </div>
                 <form action="{{ route('login') }}" method="POST" class="text-left">

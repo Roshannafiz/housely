@@ -18,9 +18,9 @@
                 </h5>
                 <div>
                     @if(session('status'))
-                        <p style="color: green">{{ session('status') }}</p>
+                        <p class="py-3" style="color: green">{{ session('status') }}</p>
                     @elseif(session('email'))
-                        <p style="color: red">{{ session('email') }}</p>
+                        <p class="py-3" style="color: red">{{ session('email') }}</p>
                     @endif
                 </div>
                 <div class="grid grid-cols-1">

@@ -57,7 +57,7 @@
                                 <p style="line-height: 30px; text-align: justify">
                                     <b style="color: #009688">Description: </b><br>
                                     <span style="font-weight: bold; text-align: justify">
-                                        {{ $house->house_description }}
+                                        {!! $house->house_description !!}
                                     </span>
                                 </p>
                             </div>

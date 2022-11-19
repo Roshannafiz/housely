@@ -16,10 +16,10 @@
                 </div>
                 @endforeach
 
-                <ul class="inline-block mx-auto sm:w-fit w-full flex-wrap justify-center text-center p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-t-xl border-b dark:border-gray-800 mt-10"
+                <ul style="background: #0F172A !important;" class="inline-block mx-auto sm:w-fit w-full flex-wrap justify-center text-center p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-t-xl border-b dark:border-gray-800 mt-10"
                     id="myTab" data-tabs-toggle="#StarterContent" role="tablist">
                     <li role="presentation" class="inline-block">
-                        <button
+                        <button style="color: white;"
                             class="sm:px-8 px-6 py-2 text-base font-medium rounded-xl w-full hover:text-green-600 transition-all duration-500 ease-in-out"
                             id="buy-home-tab" data-tabs-target="#buy-home" type="button" role="tab"
                             aria-controls="buy-home" aria-selected="true">Buy Property / Home
@@ -27,35 +27,40 @@
                     </li>
                 </ul>
 
-                <div id="StarterContent"
+                <div id="StarterContent" style="background: #0F172A !important;"
                      class="p-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-tl-none md:rounded-tl-xl rounded-tr-none md:rounded-tr-xl rounded-xl shadow-md dark:shadow-gray-700">
                     <div class="" id="buy-home" role="tabpanel" aria-labelledby="buy-home-tab">
-                        <form class="text-start">
+                        <form action="{{ url('/search-house') }}" method="GET" class="text-start"
+                              enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-1">
 
                                 </div>
                                 <div class="col-md-5">
-                                    <label for="buy-properties" class="form-label font-medium">Select
+                                    <label for="buy-properties" style="color: white" class="form-label font-medium">Select
                                         Categories:</label>
-                                    <select id="buy-properties" class="form-input bg-white dark:bg-slate-900 mt-2">
-                                        <option>Houses</option>
-                                        <option>Apartment</option>
-                                        <option>Offices</option>
-                                        <option>Townhome</option>
+                                    <select name="category" id="buy-properties" class="form-input bg-white dark:bg-slate-900 mt-2">
+                                        @foreach($categories as $category)
+                                            <option
+                                                value="{{ $category->id }} {{ request('category') == $category->id ? 'selected' : '' }}">
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                                 <div class="col-md-5" style="margin-top: 40px">
-                                    <a href="#"
-                                       class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Search
-                                        now</a>
+                                    <button type="submit"
+                                            class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
+                                        Search
+                                        now
+                                    </button>
                                 </div>
 
                                 <div class="col-md-1">
 
                                 </div>
-
                             </div>
                         </form>
                     </div>

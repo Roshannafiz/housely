@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/font-awesome-6/fontawesome.min.css') }}">
     <!---- Bootstrap 4 Cdn ---->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!---------- Toaster Message ------->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/toaster/css/jquery.toast.css') }}">
     <!-- Css -->
     <link href="{{ asset('frontend/assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/libs/tobii/css/tobii.min.css') }}" rel="stylesheet">

@@ -27,7 +27,8 @@
             <div class="row">
                 <div class="col mt-3">
                     <div class="group relative overflow-hidden" style="width: 580px !important;">
-                        <img style="border-radius: 10px" src="{{ asset('admin/images/upload-house/' . $house_detail->image) }}" alt="">
+                        <img style="border-radius: 10px"
+                             src="{{ asset('admin/images/upload-house/' . $house_detail->image) }}" alt="">
                         <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
                         <div
                             class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center invisible group-hover:visible">
@@ -44,7 +45,8 @@
                 @foreach($gallery_images as $gallery_image)
                     <div class="col-md-2 mt-3 pl-0">
                         <div class="group relative overflow-hidden">
-                            <img style="border-radius: 10px;" src="{{ asset('admin/images/upload-house-gallery/' .$gallery_image) }}"
+                            <img style="border-radius: 10px;"
+                                 src="{{ asset('admin/images/upload-house-gallery/' .$gallery_image) }}"
                                  alt="">
                             <div
                                 class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center invisible group-hover:visible">
@@ -107,7 +109,28 @@
                                 </div>
 
                                 <ul class="list-none mt-4">
-                                    <li class="flex justify-between items-center">
+                                    <li class="flex justify-between items-center mt-3">
+                                        <span class="text-slate-400 text-sm">SQF</span>
+                                        <span class="font-medium text-sm">
+                                            {{ $house_detail->house_sqf }}
+                                        </span>
+                                    </li>
+
+                                    <li class="flex justify-between items-center mt-3">
+                                        <span class="text-slate-400 text-sm">Bed</span>
+                                        <span class="font-medium text-sm">
+                                            {{ $house_detail->house_bed }}
+                                        </span>
+                                    </li>
+
+                                    <li class="flex justify-between items-center mt-3">
+                                        <span class="text-slate-400 text-sm">Bath</span>
+                                        <span class="font-medium text-sm">
+                                            {{ $house_detail->house_bath }}
+                                        </span>
+                                    </li>
+
+                                    <li class="flex justify-between items-center mt-3">
                                         <span class="text-slate-400 text-sm">Days on House</span>
                                         <span class="font-medium text-sm">
                                             {{ $house_detail->day_on_house }} Days
@@ -117,14 +140,30 @@
                             </div>
 
                             <div class="flex">
-                                <div class="p-1 w-1/2">
-
-                                </div>
-                                <div class="p-1 w-1/2">
-                                    <a href="#"
-                                       class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
-                                        Book Now
-                                    </a>
+                                <div class="ml-4" style="width: 200px !important;">
+                                    @if(\Illuminate\Support\Facades\Auth::user())
+                                        @if(\App\Models\Booking::where('house_id', $house_detail->id)->where('user_id', \Illuminate\Support\Facades\Auth::id())->exists())
+                                            <button disabled type="submit"
+                                                    class="btn bg-green-600 btn-block hover:bg-green-700 text-white rounded-md w-full">
+                                                Already Booked
+                                            </button>
+                                        @else
+                                            <form action="{{ url('/house-booking/' . $house_detail->id) }}"
+                                                  method="POST"
+                                                  enctype="multipart/form-data">
+                                                @csrf
+                                                <button type="submit"
+                                                        class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
+                                                    Book Now
+                                                </button>
+                                            </form>
+                                        @endif
+                                    @else
+                                        <a href="{{ url('/login') }}" type="submit"
+                                           class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
+                                            Login Then Book
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

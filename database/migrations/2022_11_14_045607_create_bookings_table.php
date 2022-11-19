@@ -12,15 +12,10 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('icon_code');
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->text('address')->nullable();
-            $table->string('description');
-            $table->tinyInteger('status')->default(1);
+            $table->integer('user_id');
+            $table->string('house_id');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('bookings');
     }
 };

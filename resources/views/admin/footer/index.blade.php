@@ -71,7 +71,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 80px;">Action
+                                                    style="width: 10px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
@@ -105,7 +105,7 @@
                                                                data-off="Inactive" {{ $footer->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
                                                             <a href="{{ url('footer-edit/' . $footer->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
@@ -113,7 +113,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-3">
                                                             <a href="{{ url('footer-view/' . $footer->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-eye"></i>
@@ -121,7 +121,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-3">
                                                             <a href="{{ url('/footer-delete/' . $footer->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>

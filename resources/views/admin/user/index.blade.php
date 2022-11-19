@@ -43,7 +43,7 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Name: activate to sort column descending"
-                                                    style="width: 250px;">Name
+                                                    style="width: 150px;">Name
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -58,7 +58,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Image: activate to sort column ascending"
-                                                    style="width: 80px;">Image
+                                                    style="width: 120px;">Image
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -69,7 +69,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 80px;">Action
+                                                    style="width: 10px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
@@ -103,7 +103,7 @@
                                                                data-off="Inactive" {{ $user->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
                                                             <a href="{{ url('user-edit/' . $user->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
@@ -111,7 +111,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-3">
                                                             <a href="{{ url('user-view/' . $user->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-eye"></i>
@@ -119,7 +119,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-3">
                                                             <a href="{{ url('/user-delete/' . $user->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>

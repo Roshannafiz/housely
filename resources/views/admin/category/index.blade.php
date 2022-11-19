@@ -43,7 +43,7 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Name: activate to sort column descending"
-                                                    style="width: 200px;">Name
+                                                    style="width: 250px;">Name
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -59,7 +59,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 80px;">Action
+                                                    style="width: 10px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
@@ -87,8 +87,7 @@
                                                                data-off="Inactive" {{ $category->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1"
-                                                             style="margin-right: -20px">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
                                                             <a href="{{ url('category-edit/' . $category->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
@@ -96,7 +95,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-2">
                                                             <a href="{{ url('/category-delete/' . $category->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>

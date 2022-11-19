@@ -19,11 +19,38 @@ Route::get('/feature', [\App\Http\Controllers\Frontend\FeatureController::class,
 Route::get('/faqs', [\App\Http\Controllers\Frontend\FaqController::class, 'index']);
 Route::get('/terms', [\App\Http\Controllers\Frontend\TermsController::class, 'index']);
 Route::get('/privacy', [\App\Http\Controllers\Frontend\PrivacyController::class, 'index']);
+
 Route::get('/contact-us', [\App\Http\Controllers\Frontend\ContactController::class, 'index']);
-Route::get('/my-profile', [\App\Http\Controllers\Frontend\ProfileController::class, 'index']);
-Route::post('/profile-update/{id}', [\App\Http\Controllers\Frontend\ProfileController::class, 'profile_update']);
-// House Details Route
+Route::post('/send-message', [\App\Http\Controllers\Frontend\ContactController::class, 'sendEmail']);
+
+// House Detail Route
 Route::get('house-details/{id}', [\App\Http\Controllers\Frontend\HouseDetailsController::class, 'house_detail']);
+// Search Route
+Route::get('/search-house', [\App\Http\Controllers\Frontend\SearchController::class, 'search_house']);
+
+// Profile Route
+Route::get('/profile-activity', [\App\Http\Controllers\Frontend\ProfileController::class, 'profile_activity']);
+Route::get('/my-profile', [\App\Http\Controllers\Frontend\ProfileController::class, 'index'])->middleware('auth');
+Route::post('/profile-update/{id}', [\App\Http\Controllers\Frontend\ProfileController::class, 'profile_update'])->middleware('auth');
+Route::get('/user-change-password', [\App\Http\Controllers\Frontend\ProfileController::class, 'change_password'])->middleware('auth');
+Route::post('/user-update-password', [\App\Http\Controllers\Frontend\ProfileController::class, 'update_password'])->middleware('auth');
+Route::get('/proceed-to-buy/{id}', [\App\Http\Controllers\Frontend\ProfileController::class, 'proceed_to_buy'])->middleware('auth');
+
+// Booking Route
+Route::get('/my-booking', [\App\Http\Controllers\Frontend\BookingController::class, 'index'])->middleware('auth');
+Route::post('/house-booking/{id}', [\App\Http\Controllers\Frontend\BookingController::class, 'house_booking']);
+Route::get('/remove-booking/{id}', [\App\Http\Controllers\Frontend\BookingController::class, 'delete_booking']);
+
+// Order Route
+Route::get('/my-order', [\App\Http\Controllers\Frontend\OrderController::class, 'index'])->middleware('auth');
+Route::get('/order-details/{id}', [\App\Http\Controllers\Frontend\OrderController::class, 'order_details'])->middleware('auth');
+
+// Payment Route
+Route::post('/pay-with-paypal', [\App\Http\Controllers\Frontend\PaymentController::class, 'pay']);
+Route::get('/success', [\App\Http\Controllers\Frontend\PaymentController::class, 'success']);
+Route::get('/error', [\App\Http\Controllers\Frontend\PaymentController::class, 'error']);
+Route::get('/payment-success', [\App\Http\Controllers\Frontend\PaymentController::class, 'payment_success_view'])->middleware('auth');
+Route::get('/payment-error', [\App\Http\Controllers\Frontend\PaymentController::class, 'payment_error_view'])->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +116,7 @@ Route::post('/reset-password', function (Request $request) {
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth'], function () {
+    // Dashboard Route
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('dashboard');
 
     // Banner Route
@@ -144,15 +172,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/social-update/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'social_update']);
     Route::get('/social-status', [\App\Http\Controllers\Admin\SocialController::class, 'change_status'])->name('social-status');
     Route::get('/social-delete/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'destroy']);
-
-    // Contact Route
-    Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index']);
-    Route::get('/contact-create', [\App\Http\Controllers\Admin\ContactController::class, 'contact_create']);
-    Route::post('/contact-store', [\App\Http\Controllers\Admin\ContactController::class, 'contact_store']);
-    Route::get('/contact-edit/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'contact_edit']);
-    Route::put('/contact-update/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'contact_update']);
-    Route::get('/contact-status', [\App\Http\Controllers\Admin\ContactController::class, 'change_status'])->name('contact-status');
-    Route::get('/contact-delete/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy']);
 
     // Achievement Route
     Route::get('/achievements', [\App\Http\Controllers\Admin\AchievementController::class, 'index']);
@@ -213,6 +232,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user-change-password/{id}', [\App\Http\Controllers\Admin\UserController::class, 'change_password']);
     Route::post('/user-update-password/{id}', [\App\Http\Controllers\Admin\UserController::class, 'update_password']);
     Route::get('/user-delete/{id}', [\App\Http\Controllers\Admin\UserController::class, 'destroy']);
+
+    // Booking Route
+    Route::get('/bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index']);
+    Route::get('/booking-view/{id}', [\App\Http\Controllers\Admin\BookingController::class, 'booking_view']);
+    Route::get('/booking-delete/{id}', [\App\Http\Controllers\Admin\BookingController::class, 'destroy']);
+
+    // Order Route
+    Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index']);
+    Route::get('/order-view/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'order_view']);
+    Route::get('/order-edit/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'order_edit']);
+    Route::put('/order-update/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'order_update']);
+    Route::get('/order-delete/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'destroy']);
 
     // Admin - Profile Setting Route
     Route::get('/profiles', [\App\Http\Controllers\Admin\ProfileController::class, 'index']);

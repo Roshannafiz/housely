@@ -24,8 +24,27 @@
                         style="{{ request()->is('booking-view/*') || request()->is('bookings') ? 'display: block' : '' }}">
                         <li>
                             <a href="{{ url('/bookings') }}"
-                               class="{{ 'houses' == request()->path() ? 'link-active-color' : '' }}">
+                               class="{{ request()->is('bookings') ? 'link-active-color' : '' }}">
                                 Our Booking
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Order -->
+                <li class="submenu">
+                    <a href="#"
+                       class="{{ request()->is('order-view/*') || request()->is('orders') ? 'menu_active subdrop' : '' }}">
+                        <i class="fa-regular fa-bookmark"></i>
+                        <span> Order </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="submenu_class"
+                        style="{{ request()->is('order-view/*') || request()->is('orders') ? 'display: block' : '' }}">
+                        <li>
+                            <a href="{{ url('/orders') }}"
+                               class="{{ request()->is('bookings') ? 'link-active-color' : '' }}">
+                                Our Order
                             </a>
                         </li>
                     </ul>
@@ -266,36 +285,10 @@
                     </ul>
                 </li>
 
-                <!-- Contact -->
-                <li class="submenu">
-                    <a href="#"
-                       class="{{ request()->is('contact-edit/*') || request()->is('contacts') || request()->is('contact-create')  ? 'menu_active subdrop' : '' }}">
-                        <i class="fa-solid fa-address-book"></i>
-                        <span> Contact </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="submenu_class"
-                        style="{{ request()->is('contact-edit/*') || request()->is('contacts') || request()->is('contact-create')  ? 'display: block' : '' }}">
-                        <li>
-                            <a href="{{ url('/contacts') }}"
-                               class="{{ 'contacts' == request()->path() ? 'link-active-color' : '' }}">
-                                Our Contact
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/contact-create') }}"
-                               class="{{ 'contact-create' == request()->path() ? 'link-active-color' : '' }}">
-                                Create
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 <!-- Achievement -->
                 <li class="submenu">
                     <a href="#"
-                       class="{{ request()->is('achievement-edit/*') || request()->is('privacys') || request()->is('achievement-create')  ? 'menu_active subdrop' : '' }}">
+                       class="{{ request()->is('achievement-edit/*') || request()->is('achievements') || request()->is('achievement-create')  ? 'menu_active subdrop' : '' }}">
                         <i class="fa-solid fa-trophy"></i>
                         <span> Achievement </span>
                         <span class="menu-arrow"></span>

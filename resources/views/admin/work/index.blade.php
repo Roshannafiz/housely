@@ -43,12 +43,12 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Title: activate to sort column descending"
-                                                    style="width: 150px;">Title
+                                                    style="width: 200px;">Title
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Icon Code: activate to sort column ascending"
-                                                    style="width: 100px;">Icon Code
+                                                    style="width: 120px;">Icon Code
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -92,7 +92,7 @@
                                                                data-off="Inactive" {{ $work->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
                                                             <a href="{{ url('work-edit/' . $work->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
@@ -100,7 +100,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-2">
                                                             <a href="{{ url('/work-delete/' . $work->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>

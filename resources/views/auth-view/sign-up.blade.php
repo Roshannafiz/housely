@@ -55,7 +55,7 @@
                                        type="checkbox" value="Agree"
                                        id="AcceptT&C">
                                 <label class="form-check-label text-slate-400 ms-2" for="AcceptT&C">
-                                    I Accept <a href="#" class="text-primary">Terms And Condition</a>
+                                    I Accept <a href="{{ url('/terms') }}" class="text-primary">Terms And Condition</a>
                                 </label>
                             </div>
                             <div class="py-2">

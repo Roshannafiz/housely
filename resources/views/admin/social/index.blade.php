@@ -43,12 +43,12 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="Name: activate to sort column descending"
-                                                    style="width: 150px;">Name
+                                                    style="width: 100px;">Name
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Icon Code: activate to sort column ascending"
-                                                    style="width: 170px;">Icon Code
+                                                    style="width: 100px;">Icon Code
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
@@ -64,7 +64,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 80px;">Action
+                                                    style="width: 10px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
@@ -93,7 +93,7 @@
                                                                data-off="Inactive" {{ $social->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
                                                             <a href="{{ url('social-edit/' . $social->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
@@ -101,7 +101,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-2">
                                                             <a href="{{ url('/social-delete/' . $social->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>

@@ -1,85 +1,11 @@
-@section('title') {{ 'Contact-Us' }} @endsection
+@section('title') {{ 'My-Profile' }} @endsection
 @extends('frontend.Layouts')
 @section('frontend_content')
-    <section class="relative lg:py-24 py-16" style="margin-top: 80px;">
+    <section class="relative lg:py-24 py-16" style="margin-top: 40px;">
         <div class="container">
             <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
-
-                {{--                @if($booking->count() > 0)--}}
-                {{--                    --}}
-                {{--                @else--}}
-                {{--                    <div class="lg:col-span-6 md:col-span-6">--}}
-                {{--                        <img src="{{ asset('frontend/assets/images/empty-booking.png') }}" alt="Empty Booking">--}}
-                {{--                    </div>--}}
-                {{--                @endif--}}
-
-                <div class="lg:col-span-6 md:col-span-6">
-                    <div class="lg:ml-5">
-                        <div
-                            class="rounded-md shadow dark:shadow-gray-700 hover:shadow-md dark:hover:shadow-gray-700 duration-500 ease-in-out">
-                            <div class="border-b dark:border-gray-800 p-6 text-center">
-                                <div>
-                                    <img style="border-radius: 10px"
-                                         src="{{ asset('admin/images/upload-house/1667968939.jpg') }}" alt="">
-                                </div>
-
-                                <h3 class="text-2xl text-green-600 font-medium mt-4">Price</h3>
-
-                                <div class="flex justify-center mt-4">
-                                    <span class="text-3xl font-semibold">$ 41519</span>
-                                </div>
-                            </div>
-
-                            <div class="p-6">
-                                <h5>Property Details:</h5>
-
-                                <ul class="list-none">
-                                    <li class="text-slate-400 mt-2">
-                                        <span class="text-green-600 text-md mr-2">
-                                            <i class="uil uil-check-circle align-middle"></i>
-                                        </span>
-                                        <b>Name: </b> 10765 Hillshire Ave, Baton Rouge, LA 70810, USA
-                                    </li>
-
-                                    <li class="text-slate-400 mt-2">
-                                        <span class="text-green-600 text-md mr-2">
-                                            <i class="uil uil-check-circle align-middle"></i>
-                                        </span>
-                                        <b>Sqf: </b> 8000
-                                    </li>
-
-                                    <li class="text-slate-400 mt-2">
-                                        <span class="text-green-600 text-md mr-2">
-                                            <i class="uil uil-check-circle align-middle"></i>
-                                        </span>
-                                        <b>Bed: </b>4
-                                    </li>
-
-                                    <li class="text-slate-400 mt-2">
-                                        <span class="text-green-600 text-md mr-2">
-                                            <i class="uil uil-check-circle align-middle"></i>
-                                        </span>
-                                        <b>Bath: </b> 2
-                                    </li>
-
-                                    <li class="text-slate-400 mt-2">
-                                        <span class="text-green-600 text-md mr-2">
-                                            <i class="uil uil-check-circle align-middle"></i>
-                                        </span>
-                                        <b>Day On House: </b> 212 Days
-                                    </li>
-
-                                </ul>
-
-                                <a href=""
-                                   class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-md w-full mt-4">Get
-                                    Started</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-6 md:col-span-6">
+                <!-- Profile -->
+                <div class="lg:col-span-12 md:col-span-12 pb-2">
                     <div class="lg:col-span-5 md:col-span-6">
                         <div class="lg:ml-5">
                             <div class="bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700 p-6">
@@ -168,12 +94,16 @@
                                             class="btn bg-green-600 hover:bg-green-700 text-white rounded-md">
                                         Update Profile
                                     </button>
+
+                                    <a href="{{ url('/profile-activity') }}"
+                                       class="btn bg-green-600 hover:bg-green-700 text-white rounded-md ml-3">
+                                        Not Now
+                                    </a>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

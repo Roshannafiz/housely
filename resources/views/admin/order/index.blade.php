@@ -4,19 +4,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <h3 class="page-title mt-3">Our Contact</h3>
+                    <h3 class="page-title mt-3">Our Booking</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active">Have A Nice Day!</li>
                     </ul>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="text-right">
-                        <a href="{{ url('/contact-create') }}" class="btn btn-primary">
-                            Create
-                            <i class="fa fa-plus"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -42,43 +33,40 @@
                                                 <th class="sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label="Name: activate to sort column descending"
-                                                    style="width: 100px;">Name
+                                                    aria-label="User Name: activate to sort column descending"
+                                                    style="width: 100px;">User Name
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Payer ID: activate to sort column descending"
+                                                    style="width: 100px;">Payer ID
+                                                </th>
+                                                <th class="sorting sorting_asc" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="Transition No: activate to sort column descending"
+                                                    style="width: 100px;">Transition No
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
-                                                    aria-label="Phone: activate to sort column ascending"
-                                                    style="width: 100px;">Phone
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Email: activate to sort column ascending"
-                                                    style="width: 100px;">Email
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Icon Code: activate to sort column ascending"
-                                                    style="width: 100px;">Icon Code
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Description: activate to sort column ascending"
-                                                    style="width: 200px;">Description
+                                                    aria-label="Amount: activate to sort column ascending"
+                                                    style="width: 150px;">Amount
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Status: activate to sort column ascending"
-                                                    style="width: 100px;">Status
+                                                    style="width: 120px;">Status
                                                 </th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending"
-                                                    style="width: 90px;">Action
+                                                    style="width: 10px;">Action
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($contacts as $key => $contact)
+                                            @foreach($orders as $key => $order)
                                                 <tr class="odd">
                                                     <td class="sorting_1">
                                                         <span style="font-weight: bold">
@@ -86,38 +74,39 @@
                                                         </span>
                                                     </td>
                                                     <td class="sorting_1">
-                                                        {{ $contact->name }}
+                                                        {{ $order->user_name }}
                                                     </td>
-                                                    <td>
-                                                        {{ $contact->phone }}
+                                                    <td class="sorting_1">
+                                                        {{ $order->payer_id }}
                                                     </td>
-                                                    <td>
-                                                        {{ $contact->email }}
+                                                    <td class="sorting_1">
+                                                        {{ $order->payment_id }}
                                                     </td>
-                                                    <td>
-                                                        {{ $contact->icon_code }}
+                                                    <td class="sorting_1">
+                                                        $ {{ $order->amount }}
                                                     </td>
-                                                    <td>
-                                                        {!! $contact->description  !!}
-                                                    </td>
-                                                    <td>
-                                                        <input data-id="{{ $contact->id }}" class="toggle-class-contact"
-                                                               type="checkbox" data-onstyle="success"
-                                                               data-offstyle="danger"
-                                                               data-toggle="toggle-contact" data-on="Active"
-                                                               data-off="Inactive" {{ $contact->status ? 'checked' : '' }}>
+                                                    <td class="sorting_1">
+                                                        {{ $order->status }}
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('contact-edit/' . $contact->id) }}">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
+                                                            <a href="{{ url('order-edit/' . $order->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                 </span>
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
-                                                            <a href="{{ url('/contact-delete/' . $contact->id) }}">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-3">
+                                                            <a href="{{ url('order-view/' . $order->id) }}">
+                                                                <span class="action_edit_button">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-3">
+                                                            <a href="{{ url('/order-delete/' . $order->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
                                                                 </span>
@@ -130,6 +119,7 @@
                                         </table>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

@@ -17,18 +17,24 @@
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div>
-                                <h3 class="card_widget_header">236</h3>
+                                <h3 class="card_widget_header">
+                                    @if($booking_count > 0)
+                                        {{ $booking_count }}
+                                    @else
+                                        0
+                                    @endif
+                                </h3>
                                 <h6 class="text-muted">Total Booking</h6></div>
-                            <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewbox="0 0 24 24"
-                                        fill="none" stroke="#009688" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-user-plus">
-									<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-									<circle cx="8.5" cy="7" r="4"></circle>
-									<line x1="20" y1="8" x2="20" y2="14"></line>
-									<line x1="23" y1="11" x2="17" y2="11"></line>
-									</svg></span></div>
+                            <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted">
+                                    <svg style="color: #009688;" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" fill="currentColor"
+                                         class="bi bi-bookmark-check" viewBox="0 0 16 16">
+                                      <path fill-rule="evenodd"
+                                            d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                      <path
+                                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                                    </svg>
+                                </span></div>
                         </div>
                     </div>
                 </div>
@@ -38,8 +44,14 @@
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div>
-                                <h3 class="card_widget_header">180</h3>
-                                <h6 class="text-muted">Available Rooms</h6></div>
+                                <h3 class="card_widget_header">
+                                    @if($order_count > 0)
+                                        {{ $order_count }}
+                                    @else
+                                        0
+                                    @endif
+                                </h3>
+                                <h6 class="text-muted">Total Order</h6></div>
                             <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewbox="0 0 24 24"
@@ -57,19 +69,26 @@
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div>
-                                <h3 class="card_widget_header">1538</h3>
-                                <h6 class="text-muted">Enquiry</h6></div>
-                            <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewbox="0 0 24 24"
-                                        fill="none" stroke="#009688" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-file-plus">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-									</path>
-									<polyline points="14 2 14 8 20 8"></polyline>
-									<line x1="12" y1="18" x2="12" y2="12"></line>
-									<line x1="9" y1="15" x2="15" y2="15"></line>
-									</svg></span></div>
+                                <h3 class="card_widget_header">
+                                    @if($house_count > 0)
+                                        {{ $house_count }}
+                                    @else
+                                        0
+                                    @endif
+                                </h3>
+                                <h6 class="text-muted">Total House</h6></div>
+                            <div class="ml-auto mt-md-3 mt-lg-0">
+                                <span class="opacity-7 text-muted">
+                                    <svg style="color: #009688" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" fill="currentColor" class="bi bi-house-dash"
+                                         viewBox="0 0 16 16">
+                                      <path
+                                          d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 1 1 0-1Z"/>
+                                      <path
+                                          d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708L7.293 1.5Z"/>
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,8 +98,14 @@
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div>
-                                <h3 class="card_widget_header">364</h3>
-                                <h6 class="text-muted">Collections</h6></div>
+                                <h3 class="card_widget_header">
+                                    @if($user_count > 0)
+                                        {{ $user_count }}
+                                    @else
+                                        0
+                                    @endif
+                                </h3>
+                                <h6 class="text-muted">Total User</h6></div>
                             <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewbox="0 0 24 24"
@@ -93,26 +118,6 @@
 									</path>
 									</svg></span></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-lg-6">
-                <div class="card card-chart">
-                    <div class="card-header">
-                        <h4 class="card-title">VISITORS</h4></div>
-                    <div class="card-body">
-                        <div id="line-chart"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="card card-chart">
-                    <div class="card-header">
-                        <h4 class="card-title">ROOMS BOOKED</h4></div>
-                    <div class="card-body">
-                        <div id="donut-chart"></div>
                     </div>
                 </div>
             </div>

@@ -47,11 +47,11 @@
 
                         <div class="mb-4">
                             <label class="font-semibold" for="LoginPassword">Confirm Password:</label>
-                            <input id="LoginPassword" name="confirm_password" type="password" class="form-input mt-3"
+                            <input id="LoginPassword" name="password_confirmation" type="password" class="form-input mt-3"
                                    placeholder="Password:">
                             <div class="py-2">
-                                @if ($errors->has('confirm_password'))
-                                    <span style="color: red">{{ $errors->first('confirm_password') }}</span>
+                                @if ($errors->has('password_confirmation'))
+                                    <span style="color: red">{{ $errors->first('password_confirmation') }}</span>
                                 @endif
                             </div>
                         </div>

@@ -77,7 +77,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Status: activate to sort column ascending"
-                                                    style="width: 100px;">Status
+                                                    style="width: 10px;">Status
                                                 </th>
 
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
@@ -135,7 +135,7 @@
                                                                data-off="Inactive" {{ $agent->status ? 'checked' : '' }}>
                                                     </td>
                                                     <td class="row">
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mr-2">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 mb-sm-3">
                                                             <a href="{{ url('agent-edit/' . $agent->id) }}">
                                                                 <span class="action_edit_button">
                                                                     <i class="fas fa-pencil-alt"></i>
@@ -143,7 +143,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="col-md-3 col-sm-12 mt-sm-1">
+                                                        <div class="col-md-3 col-sm-12 mt-sm-1 ml-md-3 ml-lg-2">
                                                             <a href="{{ url('/agent-delete/' . $agent->id) }}">
                                                                 <span class="action_delete_button">
                                                                     <i class="fas fa-trash-alt"></i>
